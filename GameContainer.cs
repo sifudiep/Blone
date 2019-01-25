@@ -4,7 +4,12 @@ namespace Blone
 {
     public class GameContainer
     {
+        GameContainer(Hero hero)
+        {
+            _hero = hero;
+        }
         private ConsoleKeyInfo _keyInfo;
+        private Hero _hero;
         public void HandleInput()
         {
             if (Console.KeyAvailable)
@@ -38,10 +43,6 @@ namespace Blone
                             // Use powerup
                             break;
                     }
-                }
-                else
-                {
-                    Environment.Exit(0);
                 }
             }
         }

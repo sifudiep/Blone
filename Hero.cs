@@ -11,6 +11,7 @@ namespace Blone
         {
             X = x;
             Y = y;
+            DrawHero(X,Y);
         }
 
         public void EraseHero()
@@ -27,25 +28,29 @@ namespace Blone
             Console.Write('H');
         }
         
-        public void MoveHero(int x, int y, string direction)
+        public void MoveHero(string direction)
         {
             switch (direction)
             {
                 case "up":
                     EraseHero();
-                    DrawHero(x, (y - 1));
+                    Y -= 1;
+                    DrawHero(X, Y);
                     break;
                 case "down":
                     EraseHero();
-                    DrawHero(x, (y + 1));
+                    Y += 1;
+                    DrawHero(X, Y);
                     break;
                 case "left":
                     EraseHero();
-                    DrawHero((x - 1), y);
+                    X -= 1;
+                    DrawHero(X, Y);
                     break;
                 case "right":
                     EraseHero();
-                    DrawHero((x + 1), y);
+                    X += 1;
+                    DrawHero(X, Y);
                     break;
             }
         }
