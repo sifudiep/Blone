@@ -4,6 +4,7 @@
     <list default="true" id="a657b010-233b-49fa-9fd1-9863655ca2e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blone/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,30 +14,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Program.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="165">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
               <folding>
-                <marker date="1548343298451" expanded="false" signature="6:56" ph="..." />
-                <marker date="1548343298451" expanded="true" signature="73:183" ph="{...}" />
-                <marker date="1548343298451" expanded="true" signature="102:181" ph="{...}" />
-                <marker date="1548343298451" expanded="true" signature="155:175" ph="{...}" />
+                <marker date="1548403293651" expanded="false" signature="6:56" ph="..." />
+                <marker date="1548403293651" expanded="true" signature="73:312" ph="{...}" />
+                <marker date="1548403293651" expanded="true" signature="102:310" ph="{...}" />
+                <marker date="1548403293651" expanded="true" signature="155:304" ph="{...}" />
+                <marker date="1548403293651" expanded="true" signature="232:294" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameContainer.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+            <state relative-caret-position="645">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding>
-                <marker date="1548343428106" expanded="true" signature="15:129" ph="{...}" />
-                <marker date="1548343428106" expanded="true" signature="48:127" ph="{...}" />
-                <marker date="1548343428106" expanded="true" signature="88:121" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="30:1664" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="63:1662" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="144:1656" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="192:1646" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="287:1534" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="348:1516" ph="{...}" />
+                <marker date="1548403256420" expanded="true" signature="1555:1632" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -62,6 +68,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -72,8 +79,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/GameContainer.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
       </list>
     </option>
   </component>
@@ -92,10 +99,10 @@
     </navigator>
     <panes>
       <pane id="AssemblyExplorer" />
-      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -119,19 +126,19 @@
   </component>
   <component name="RunManager">
     <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/Blone.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Blone.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="None" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.6.1" />
       <method v="2">
         <option name="Build" enabled="true" />
       </method>
@@ -148,12 +155,13 @@
       <option name="presentableId" value="Default" />
       <updated>1548342289713</updated>
       <workItem from="1548342292093" duration="1520000" />
-      <workItem from="1548343920268" duration="398000" />
+      <workItem from="1548343920268" duration="789000" />
+      <workItem from="1548402667147" duration="629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1918000" />
+    <option name="totallyTimeSpent" value="2938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -166,9 +174,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -194,7 +201,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Errors In Solution" order="4" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Unit Tests Coverage" order="6" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="6" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +209,9 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -213,24 +223,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <marker date="1548343298451" expanded="false" signature="6:56" ph="..." />
-            <marker date="1548343298451" expanded="true" signature="73:183" ph="{...}" />
-            <marker date="1548343298451" expanded="true" signature="102:181" ph="{...}" />
-            <marker date="1548343298451" expanded="true" signature="155:175" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hero.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <marker date="1548343298436" expanded="true" signature="30:1278" ph="{...}" />
             <marker date="1548343298436" expanded="true" signature="54:1276" ph="{...}" />
             <marker date="1548343298436" expanded="true" signature="155:213" ph="{...}" />
             <marker date="1548343298436" expanded="true" signature="246:400" ph="{...}" />
@@ -243,12 +239,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GameContainer.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        <state relative-caret-position="645">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
-            <marker date="1548343428106" expanded="true" signature="15:129" ph="{...}" />
-            <marker date="1548343428106" expanded="true" signature="48:127" ph="{...}" />
-            <marker date="1548343428106" expanded="true" signature="88:121" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="30:1664" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="63:1662" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="144:1656" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="192:1646" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="287:1534" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="348:1516" ph="{...}" />
+            <marker date="1548403256420" expanded="true" signature="1555:1632" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <marker date="1548403293651" expanded="false" signature="6:56" ph="..." />
+            <marker date="1548403293651" expanded="true" signature="73:312" ph="{...}" />
+            <marker date="1548403293651" expanded="true" signature="102:310" ph="{...}" />
+            <marker date="1548403293651" expanded="true" signature="155:304" ph="{...}" />
+            <marker date="1548403293651" expanded="true" signature="232:294" ph="{...}" />
           </folding>
         </state>
       </provider>

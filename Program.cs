@@ -7,6 +7,11 @@ namespace Blone
     {
         public static void Main(string[] args)
         {
+            var gc = new GameContainer();
+            while (true)
+            {
+                gc.HandleInput();
+            }
         }
     }
 }
