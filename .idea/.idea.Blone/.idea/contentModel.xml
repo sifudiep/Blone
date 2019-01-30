@@ -7,6 +7,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Blone.csproj" t="IncludeRecursive" />
       <e p="Blone.sln" t="IncludeFlat" />
+      <e p="DevHelper.cs" t="Include" />
       <e p="GameContainer.cs" t="Include" />
       <e p="Hero.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive" />

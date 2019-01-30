@@ -4,7 +4,7 @@ namespace Blone
 {
     public class GameContainer
     {
-        GameContainer(Hero hero)
+        public GameContainer(Hero hero)
         {
             _hero = hero;
         }
@@ -19,24 +19,40 @@ namespace Blone
                     switch (_keyInfo.Key) 
                     {
                         case ConsoleKey.UpArrow:
-                            Console.WriteLine("UPARROW");
+                            _hero.LookDirection(DevHelper.DIRECTION_UP);
+                            Console.WriteLine(_hero._lookDirection);
                             break;
                         case ConsoleKey.DownArrow:
-                            Console.WriteLine("DOWJNARROW");
+                            _hero.LookDirection(DevHelper.DIRECTION_DOWN);
+                            Console.WriteLine(_hero._lookDirection);
                             break;
                         case ConsoleKey.LeftArrow:
-                            Console.WriteLine("LEFTARROW");
+                            _hero.LookDirection(DevHelper.DIRECTION_LEFT);
+                            Console.WriteLine(_hero._lookDirection);
                             break;
                         case ConsoleKey.RightArrow:
-                            Console.WriteLine("RIGHTARROW");
+                            _hero.LookDirection(DevHelper.DIRECTION_RIGHT);
+                            Console.WriteLine(_hero._lookDirection);
                             break;
-                        case ConsoleKey.Z:
-                            Console.WriteLine("Z");
-                            // Shoot with current gun
+                        case ConsoleKey.W:
+                            _hero.MoveHero(DevHelper.DIRECTION_UP);
+                            _hero.EraseVision();
+                            _hero.UpdateVision();
                             break;
-                        case ConsoleKey.X:
-                            Console.WriteLine("X");
-                            // Swap Gun
+                        case ConsoleKey.S:
+                            _hero.MoveHero(DevHelper.DIRECTION_DOWN);
+                            _hero.EraseVision();
+                            _hero.UpdateVision();
+                            break;
+                        case ConsoleKey.A:
+                            _hero.MoveHero(DevHelper.DIRECTION_LEFT);
+                            _hero.EraseVision();
+                            _hero.UpdateVision();
+                            break;
+                        case ConsoleKey.D:
+                            _hero.MoveHero(DevHelper.DIRECTION_RIGHT);
+                            _hero.EraseVision();
+                            _hero.UpdateVision();
                             break;
                         case ConsoleKey.Spacebar:
                             Console.WriteLine("SPACEBAR");
