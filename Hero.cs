@@ -46,28 +46,44 @@ namespace Blone
                 case DevHelper.DIRECTION_DOWN:
                     for (int i = 1; i < 5; i++)
                     {
-                        for (int j = _x; j < ((_x+1)+(2*i)); j++)
+                        for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            Console.SetCursorPosition(j-i, i+_y);
+                            Console.SetCursorPosition(_x - j + i, _y + i);
                             Console.BackgroundColor = ConsoleColor.Yellow;
                             Console.Write(" ");
-                            VisionCoordinates[VisionCoordinateTracker, 0] = j - i;
-                            VisionCoordinates[VisionCoordinateTracker, 1] = i+_y;
+                            VisionCoordinates[VisionCoordinateTracker, 0] = (_x - j + i);
+                            VisionCoordinates[VisionCoordinateTracker, 1] = (_y + i);
                             VisionCoordinateTracker++;
                         }
                     }
                     break;
                 case DevHelper.DIRECTION_LEFT:
-                    for (int i = 5; i < 5; i++)
+                    for (int i = 1; i < 5; i++)
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
+                            Console.SetCursorPosition(_x - i, _y - j + i);
                             Console.BackgroundColor = ConsoleColor.Yellow;
                             Console.Write(" ");
+                            VisionCoordinates[VisionCoordinateTracker, 0] = _x - i;
+                            VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
+                            VisionCoordinateTracker++;
                         }
                     }
                     break;
                 case DevHelper.DIRECTION_RIGHT:
+                    for (int i = 1; i < 5; i++)
+                    {
+                        for (int j = 0; j < 1 + 2*i; j++)
+                        {
+                            Console.SetCursorPosition(_x + i, _y - j + i);
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.Write(" ");
+                            VisionCoordinates[VisionCoordinateTracker, 0] = _x + i;
+                            VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
+                            VisionCoordinateTracker++;
+                        }
+                    }
                     break;
             }
             Console.BackgroundColor = ConsoleColor.Black;
