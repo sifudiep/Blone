@@ -9,6 +9,7 @@
       <e p="Blone.sln" t="IncludeFlat" />
       <e p="DevHelper.cs" t="Include" />
       <e p="GameContainer.cs" t="Include" />
+      <e p="Gun.cs" t="Include" />
       <e p="Hero.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />

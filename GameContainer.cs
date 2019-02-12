@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Blone
 {
@@ -10,6 +11,7 @@ namespace Blone
         }
         private ConsoleKeyInfo _keyInfo;
         private Hero _hero;
+        public static List<Projectile> ProjectileList = new List<Projectile>(); 
         public void HandleInput()
         {
             if (Console.KeyAvailable)

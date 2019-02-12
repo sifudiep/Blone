@@ -13,22 +13,7 @@ namespace Blone
             while (true)
             {
                 gc.HandleInput();
-            }
-
-//            // COORDINATE ALGORITHM
-//            int VisionCoordinateTracker = 0;
-//            for (int i = 1; i < 5; i++)
-//            {
-//                for (int j = 30; j < (31+2*i); j++)
-//                {
-//                    // i = y & j-i = x
-//                    Console.SetCursorPosition(j-i, i);
-//                    Console.Write('*');
-//                    
-//                }
-//            }
-            
-           
+            }  
         }
     }
 }

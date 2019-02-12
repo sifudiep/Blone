@@ -10,12 +10,14 @@ namespace Blone
         private int _y;
         public string LookDirection;
         public int[,] VisionCoordinates = new int[25,2];
+        public Gun Gun;
 
         public Hero()
         {
             _x = Console.WindowWidth/2;
             _y = Console.WindowHeight/2;
             DrawHero(_x, _y);
+            Gun = new Pistol();
         }
         public void Spawn(int x, int y)
         {
@@ -87,10 +89,6 @@ namespace Blone
                     break;
             }
             Console.BackgroundColor = ConsoleColor.Black;
-
-            
-
-            
         }
 
         public void EraseVision()
@@ -126,7 +124,7 @@ namespace Blone
                 case DevHelper.DIRECTION_UP:
                     if (LookDirection == DevHelper.DIRECTION_UP)
                     {
-                        Console.WriteLine("SHOOT");
+                        Gun.Shoot(_x, _y, LookDirection);
                     }
                     else
                     {

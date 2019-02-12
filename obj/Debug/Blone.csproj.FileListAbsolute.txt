@@ -1,5 +1,12 @@
 C:\Users\Mike\Desktop\Blone\bin\Debug\Blone.exe
 C:\Users\Mike\Desktop\Blone\bin\Debug\Blone.pdb
-C:\Users\Mike\Desktop\Blone\obj\Debug\Blone.csprojResolveAssemblyReference.cache
 C:\Users\Mike\Desktop\Blone\obj\Debug\Blone.exe
 C:\Users\Mike\Desktop\Blone\obj\Debug\Blone.pdb
+C:\Users\Mike\Desktop\Blones\bin\Debug\Blone.exe
+C:\Users\Mike\Desktop\Blones\bin\Debug\Blone.pdb
+C:\Users\Mike\Desktop\Blones\obj\Debug\Blone.csprojAssemblyReference.cache
+C:\Users\Mike\Desktop\Blones\obj\Debug\Blone.csproj.CoreCompileInputs.cache
+C:\Users\Mike\Desktop\Blones\obj\Debug\Blone.exe
+C:\Users\Mike\Desktop\Blones\obj\Debug\Blone.pdb
+C:\Users\Mike\Desktop\Blone\obj\Debug\Blone.csprojAssemblyReference.cache
+C:\Users\Mike\Desktop\Blone\obj\Debug\Blone.csproj.CoreCompileInputs.cache
