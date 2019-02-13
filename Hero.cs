@@ -36,12 +36,16 @@ namespace Blone
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            Console.SetCursorPosition(_x - j + i, _y - i);
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.Write(" ");
-                            VisionCoordinates[VisionCoordinateTracker, 0] = (_x - j + i);
-                            VisionCoordinates[VisionCoordinateTracker, 1] = (_y - i);
-                            VisionCoordinateTracker++;
+                            if (_x - j + i > -1 && _x - j + i < Console.BufferWidth && _y - i > -1 && _y - i < Console.BufferHeight)
+                            {
+                                Console.SetCursorPosition(_x - j + i, _y - i);
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.Write(" ");
+                                VisionCoordinates[VisionCoordinateTracker, 0] = (_x - j + i);
+                                VisionCoordinates[VisionCoordinateTracker, 1] = (_y - i);
+                                VisionCoordinateTracker++;
+                            }
+                            
                         }
                     }
                     break;
@@ -50,12 +54,15 @@ namespace Blone
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            Console.SetCursorPosition(_x - j + i, _y + i);
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.Write(" ");
-                            VisionCoordinates[VisionCoordinateTracker, 0] = (_x - j + i);
-                            VisionCoordinates[VisionCoordinateTracker, 1] = (_y + i);
-                            VisionCoordinateTracker++;
+                            if (_x - j + i > -1 && _x - j + i < Console.BufferWidth && _y + i > -1 && _y + i < Console.BufferHeight)
+                            {
+                                Console.SetCursorPosition(_x - j + i, _y + i);
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.Write(" ");
+                                VisionCoordinates[VisionCoordinateTracker, 0] = (_x - j + i);
+                                VisionCoordinates[VisionCoordinateTracker, 1] = (_y + i);
+                                VisionCoordinateTracker++;
+                            }
                         }
                     }
                     break;
@@ -64,12 +71,15 @@ namespace Blone
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            Console.SetCursorPosition(_x - i, _y - j + i);
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.Write(" ");
-                            VisionCoordinates[VisionCoordinateTracker, 0] = _x - i;
-                            VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
-                            VisionCoordinateTracker++;
+                            if (_x - i > -1 && _x - i < Console.BufferWidth && _y - j + i > -1 && _y - j + i < Console.BufferHeight)
+                            {
+                                Console.SetCursorPosition(_x - i, _y - j + i);
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.Write(" ");
+                                VisionCoordinates[VisionCoordinateTracker, 0] = _x - i;
+                                VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
+                                VisionCoordinateTracker++;
+                            }
                         }
                     }
                     break;
@@ -78,12 +88,15 @@ namespace Blone
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            Console.SetCursorPosition(_x + i, _y - j + i);
-                            Console.BackgroundColor = ConsoleColor.Yellow;
-                            Console.Write(" ");
-                            VisionCoordinates[VisionCoordinateTracker, 0] = _x + i;
-                            VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
-                            VisionCoordinateTracker++;
+                            if (_x + i > -1 && _x + i < Console.BufferWidth && _y - j + i > -1 && _y - j + i < Console.BufferHeight)
+                            {
+                                Console.SetCursorPosition(_x + i, _y - j + i);
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.Write(" ");
+                                VisionCoordinates[VisionCoordinateTracker, 0] = _x + i;
+                                VisionCoordinates[VisionCoordinateTracker, 1] = _y - j + i;
+                                VisionCoordinateTracker++;
+                            }
                         }
                     }
                     break;
@@ -177,20 +190,32 @@ namespace Blone
             switch (direction)
             {
                 case DevHelper.Up:
-                    EraseHero();
-                    DrawHero(_x, _y-1);
+                    if (_y - 1 >= 0 && _y - 1 < Console.BufferHeight)
+                    {
+                        EraseHero();
+                        DrawHero(_x, _y-1);
+                    }
                     break;
                 case DevHelper.Down:
-                    EraseHero();
-                    DrawHero(_x, _y+1);
+                    if (_y+1 >= 0 && _y+1 < Console.BufferHeight)
+                    {
+                        EraseHero();
+                        DrawHero(_x, _y + 1);
+                    }
                     break;
                 case DevHelper.Left:
-                    EraseHero();
-                    DrawHero(_x-1, _y);
+                    if (_x - 1 >= 0 && _x - 1 < Console.BufferWidth)
+                    {
+                        EraseHero();
+                        DrawHero(_x - 1, _y);
+                    }
                     break;
                 case DevHelper.Right:
-                    EraseHero();
-                    DrawHero(_x+1, _y);
+                    if (_x + 1 >= 0 && _x + 1 < Console.BufferWidth)
+                    {
+                        EraseHero();
+                        DrawHero(_x + 1, _y);
+                    }
                     break;
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 
 namespace Blone
@@ -35,6 +36,7 @@ namespace Blone
         public int Speed;
         public string Type; 
         public string Direction;
+        public ConsoleColor FormerBackgroundColor;
         public abstract void Move();
         public abstract void Erase();
         public abstract void Draw();
