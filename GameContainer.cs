@@ -18,15 +18,15 @@ namespace Blone
 
         public void UpdateProjectiles()
         {
-            _bulletMovement.Start();
             for (int i = 0; i < ProjectileList.Count; i++)
             {
-                if (ProjectileList[i].Type == DevHelper.Bullet && _bulletMovement.ElapsedMilliseconds > 1000)
+                ProjectileList[i].MoveStopwatch.Start();
+                if (ProjectileList[i].Type == DevHelper.Bullet && ProjectileList[i].MoveStopwatch.ElapsedMilliseconds > ProjectileList[i].Speed)
                 {
                     if (ProjectileList[i].CheckCollision() == DevHelper.NoCollision)
                     {
                         ProjectileList[i].Move();
-                        _bulletMovement.Reset();
+                        ProjectileList[i].MoveStopwatch.Reset();
                     }
                     else
                     {

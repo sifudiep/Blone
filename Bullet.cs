@@ -7,7 +7,7 @@ namespace Blone
         public Bullet(int x, int y, string direction) : base(x, y, direction)
         {
             Damage = 10;
-            Speed = 2;
+            Speed = 500;
             Type = DevHelper.Bullet;
             Draw();
         }

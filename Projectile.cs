@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Blone
 {
     public abstract class Projectile
@@ -28,6 +30,7 @@ namespace Blone
 
         public int X;
         public int Y;
+        public Stopwatch MoveStopwatch = new Stopwatch();
         public int Damage;
         public int Speed;
         public string Type; 
