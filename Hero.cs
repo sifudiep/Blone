@@ -31,7 +31,7 @@ namespace Blone
             var VisionCoordinateTracker = 0;
             switch (direction)
             {
-                case DevHelper.DIRECTION_UP:
+                case DevHelper.Up:
                     for (int i = 1; i < 5; i++)
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
@@ -45,7 +45,7 @@ namespace Blone
                         }
                     }
                     break;
-                case DevHelper.DIRECTION_DOWN:
+                case DevHelper.Down:
                     for (int i = 1; i < 5; i++)
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
@@ -59,7 +59,7 @@ namespace Blone
                         }
                     }
                     break;
-                case DevHelper.DIRECTION_LEFT:
+                case DevHelper.Left:
                     for (int i = 1; i < 5; i++)
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
@@ -73,7 +73,7 @@ namespace Blone
                         }
                     }
                     break;
-                case DevHelper.DIRECTION_RIGHT:
+                case DevHelper.Right:
                     for (int i = 1; i < 5; i++)
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
@@ -121,50 +121,50 @@ namespace Blone
         {
             switch (direction) 
             {
-                case DevHelper.DIRECTION_UP:
-                    if (LookDirection == DevHelper.DIRECTION_UP)
+                case DevHelper.Up:
+                    if (LookDirection == DevHelper.Up)
                     {
                         Gun.Shoot(_x, _y, LookDirection);
                     }
                     else
                     {
-                        LookDirection = DevHelper.DIRECTION_UP;
+                        LookDirection = DevHelper.Up;
                         EraseVision();
                         UpdateVision(LookDirection);                        
                     }
                     break;
-                case DevHelper.DIRECTION_DOWN:
-                    if (LookDirection == DevHelper.DIRECTION_DOWN)
+                case DevHelper.Down:
+                    if (LookDirection == DevHelper.Down)
                     {
                         Console.WriteLine("SHOOT");
                     }
                     else
                     {
-                        LookDirection = DevHelper.DIRECTION_DOWN;
+                        LookDirection = DevHelper.Down;
                         EraseVision();
                         UpdateVision(LookDirection);       
                     }
                     break;
-                case DevHelper.DIRECTION_LEFT:
-                    if (LookDirection == DevHelper.DIRECTION_LEFT)
+                case DevHelper.Left:
+                    if (LookDirection == DevHelper.Left)
                     {
                         Console.WriteLine("SHOOT");
                     }
                     else
                     {
-                        LookDirection = DevHelper.DIRECTION_LEFT;        
+                        LookDirection = DevHelper.Left;        
                         EraseVision();
                         UpdateVision(LookDirection);       
                     }
                     break;
-                case DevHelper.DIRECTION_RIGHT:
-                    if (LookDirection == DevHelper.DIRECTION_RIGHT)
+                case DevHelper.Right:
+                    if (LookDirection == DevHelper.Right)
                     {
                         Console.WriteLine("SHOOT");
                     }
                     else
                     {
-                        LookDirection = DevHelper.DIRECTION_RIGHT;   
+                        LookDirection = DevHelper.Right;   
                         EraseVision();
                         UpdateVision(LookDirection);       
                     }
@@ -176,19 +176,19 @@ namespace Blone
         {
             switch (direction)
             {
-                case DevHelper.DIRECTION_UP:
+                case DevHelper.Up:
                     EraseHero();
                     DrawHero(_x, _y-1);
                     break;
-                case DevHelper.DIRECTION_DOWN:
+                case DevHelper.Down:
                     EraseHero();
                     DrawHero(_x, _y+1);
                     break;
-                case DevHelper.DIRECTION_LEFT:
+                case DevHelper.Left:
                     EraseHero();
                     DrawHero(_x-1, _y);
                     break;
-                case DevHelper.DIRECTION_RIGHT:
+                case DevHelper.Right:
                     EraseHero();
                     DrawHero(_x+1, _y);
                     break;

@@ -13,6 +13,7 @@ namespace Blone
             while (true)
             {
                 gc.HandleInput();
+                gc.UpdateProjectiles();
             }  
         }
     }

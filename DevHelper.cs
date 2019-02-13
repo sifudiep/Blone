@@ -2,9 +2,12 @@ namespace Blone
 {
     public static class DevHelper
     {
-        public const string DIRECTION_UP = "up";
-        public const string DIRECTION_DOWN = "down";
-        public const string DIRECTION_LEFT = "left";
-        public const string DIRECTION_RIGHT = "right";
+        public const string Up = "up";
+        public const string Down = "down";
+        public const string Left = "left";
+        public const string Right = "right";
+        public const string Bullet = "Bullet";
+        public const string OutOfBounds = "OutOfBounds";
+        public const string NoCollision = "NoCollision";
     }
 }
