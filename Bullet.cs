@@ -9,49 +9,56 @@ namespace Blone
         {
             Damage = 10;
             Speed = 500;
+            MaxDistance = 10;
             Type = DevHelper.Bullet;
+            Removed = false;
             Draw();
         }
 
+        public int DistanceTraveled = 0;
+
         public override void Move()
         {
-            switch (Direction)
+            if (DistanceTraveled < MaxDistance)
             {
-                case DevHelper.Up:
-                    Erase();
-                    Y = Y - 1;
-                    Draw();
-                    break;
-                case DevHelper.Down:
-                    Erase();
-                    Y = Y + 1;
-                    Draw();
-                    break;
-                case DevHelper.Right:
-                    Erase();
-                    X = X + 1;
-                    Draw();
-                    break;
-                case DevHelper.Left:
-                    Erase();
-                    X = X - 1;
-                    Draw();
-                    break;
+                switch (Direction)
+                {
+                    case DevHelper.Up:
+                        Erase();
+                        Y = Y - 1;
+                        Draw();
+                        break;
+                    case DevHelper.Down:
+                        Erase();
+                        Y = Y + 1;
+                        Draw();
+                        break;
+                    case DevHelper.Right:
+                        Erase();
+                        X = X + 1;
+                        Draw();
+                        break;
+                    case DevHelper.Left:
+                        Erase();
+                        X = X - 1;
+                        Draw();
+                        break;
+                }
+                DistanceTraveled++;
+                MoveStopwatch.Reset();
             }
-        }
-
-        public override void Erase()
-        {
-            Console.SetCursorPosition(X, Y);
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" ");
+            else if (Removed == false)
+            {
+                Erase();
+                Remove();
+            }
         }
 
         public override void Draw()
         {
             Console.SetCursorPosition(X, Y);
             Console.BackgroundColor = ConsoleColor.Magenta;
-            Console.Write("#");
+            Console.Write("o");
         }
 
         public override string CheckCollision()
@@ -63,5 +70,7 @@ namespace Blone
             
             return DevHelper.NoCollision;
         }
+
+        
     }
 }

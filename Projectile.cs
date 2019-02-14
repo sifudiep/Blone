@@ -34,12 +34,33 @@ namespace Blone
         public Stopwatch MoveStopwatch = new Stopwatch();
         public int Damage;
         public int Speed;
+        public int MaxDistance;
+        public bool Removed;
         public string Type; 
         public string Direction;
         public ConsoleColor FormerBackgroundColor;
         public abstract void Move();
-        public abstract void Erase();
         public abstract void Draw();
         public abstract string CheckCollision();
+        public void Erase()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(" ");
+        }
+        public void Remove()
+        {
+            for (int i = 0; i < GameContainer.ProjectileList.Count; i++)
+            {
+                if (GameContainer.ProjectileList[i].X == X
+                    && GameContainer.ProjectileList[i].Y == Y
+                    && GameContainer.ProjectileList[i].Type == Type)
+                {
+                    Removed = true;
+                    GameContainer.ProjectileList.RemoveAt(i);
+                }
+            }
+            
+        }
     }
 }

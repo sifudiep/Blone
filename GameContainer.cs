@@ -14,7 +14,6 @@ namespace Blone
         private Hero _hero;
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
-        private Stopwatch _bulletMovement = new Stopwatch();
 
         public void UpdateProjectiles()
         {
@@ -26,7 +25,6 @@ namespace Blone
                     if (ProjectileList[i].CheckCollision() == DevHelper.NoCollision)
                     {
                         ProjectileList[i].Move();
-                        ProjectileList[i].MoveStopwatch.Reset();
                     }
                     else
                     {
@@ -36,6 +34,7 @@ namespace Blone
                 }
             }
         }
+
         public void HandleInput()
         {
             if (Console.KeyAvailable)

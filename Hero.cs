@@ -14,16 +14,10 @@ namespace Blone
 
         public Hero()
         {
-            _x = Console.WindowWidth/2;
-            _y = Console.WindowHeight/2;
+            _x = Console.BufferWidth/2;
+            _y = Console.BufferHeight/2;
             DrawHero(_x, _y);
             Gun = new Pistol();
-        }
-        public void Spawn(int x, int y)
-        {
-            _x = x;
-            _y = y;
-            DrawHero(_x,_y);
         }
 
         public void UpdateVision(string direction)
@@ -149,7 +143,7 @@ namespace Blone
                 case DevHelper.Down:
                     if (LookDirection == DevHelper.Down)
                     {
-                        Console.WriteLine("SHOOT");
+                        Gun.Shoot(_x, _y, LookDirection);
                     }
                     else
                     {
@@ -161,7 +155,7 @@ namespace Blone
                 case DevHelper.Left:
                     if (LookDirection == DevHelper.Left)
                     {
-                        Console.WriteLine("SHOOT");
+                        Gun.Shoot(_x, _y, LookDirection);
                     }
                     else
                     {
@@ -173,7 +167,7 @@ namespace Blone
                 case DevHelper.Right:
                     if (LookDirection == DevHelper.Right)
                     {
-                        Console.WriteLine("SHOOT");
+                        Gun.Shoot(_x, _y, LookDirection);
                     }
                     else
                     {
