@@ -75,6 +75,9 @@ namespace Blone
                             _hero.MoveHero(DevHelper.Right);
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
+                        case ConsoleKey.R:
+                            _hero.Gun.Reload();
+                            break;
                         case ConsoleKey.Spacebar:
                             Console.WriteLine("SPACEBAR");
                             // Use powerup

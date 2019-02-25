@@ -7,7 +7,8 @@ namespace Blone
     {
         public int MagazineSize;
         public int AmmunitionInMagazine;
-        public int RoundsPerSecond;
+        public int RoundsPerKSeconds;
+        public int ReloadMilliseconds;
 
         public abstract void Shoot(int x, int y, string direction);
         public abstract void Reload();

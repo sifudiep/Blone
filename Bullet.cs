@@ -3,12 +3,40 @@ using System.Diagnostics;
 
 namespace Blone
 {
+
+    public class Brra : Projectile
+    {
+        public Brra(int x, int y, string direction) : base(x, y, direction)
+        {
+            Damage = 7;
+            Speed = 100;
+            MaxDistance = 10;
+            Type = DevHelper.Brra;
+            Removed = false;
+            Draw();
+        }
+
+        public override void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Draw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string CheckCollision()
+        {
+            throw new NotImplementedException();
+        }
+    }
     public class Bullet : Projectile
     {
         public Bullet(int x, int y, string direction) : base(x, y, direction)
         {
             Damage = 10;
-            Speed = 500;
+            Speed = 50;
             MaxDistance = 10;
             Type = DevHelper.Bullet;
             Removed = false;
