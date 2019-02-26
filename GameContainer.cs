@@ -20,7 +20,7 @@ namespace Blone
             for (int i = 0; i < ProjectileList.Count; i++)
             {
                 ProjectileList[i].MoveStopwatch.Start();
-                if (ProjectileList[i].Type == DevHelper.Bullet && ProjectileList[i].MoveStopwatch.ElapsedMilliseconds > ProjectileList[i].Speed)
+                if (ProjectileList[i].MoveStopwatch.ElapsedMilliseconds > ProjectileList[i].Speed)
                 {
                     if (ProjectileList[i].CheckCollision() == DevHelper.NoCollision)
                     {

@@ -9,7 +9,7 @@ namespace Blone
         private int _x;
         private int _y;
         public string LookDirection;
-        public int[,] VisionCoordinates = new int[25,2];
+        public readonly int[,] VisionCoordinates = new int[25,2];
         public Gun Gun;
 
         public Hero()
@@ -17,7 +17,7 @@ namespace Blone
             _x = Console.BufferWidth/2;
             _y = Console.BufferHeight/2;
             DrawHero(_x, _y);
-            Gun = new Pistol();
+            Gun = new Rifle();
         }
 
         public void UpdateVision(string direction)
@@ -106,7 +106,6 @@ namespace Blone
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Write(" ");
             }
-            
         }
 
         public void EraseHero()

@@ -39,9 +39,61 @@ namespace Blone
         public string Type; 
         public string Direction;
         public ConsoleColor FormerBackgroundColor;
-        public abstract void Move();
-        public abstract void Draw();
-        public abstract string CheckCollision();
+        public int DistanceTraveled = 0;
+
+        public string CheckCollision()
+        {
+            if (X-1 < 0 || X+1 > Console.BufferWidth || Y-1 < 0 || Y+1 > Console.BufferHeight)
+                return DevHelper.OutOfBounds;
+            
+            // Not added enemies to collide with yet.
+            
+            return DevHelper.NoCollision;
+        }
+        
+        public void Draw()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            Console.Write("o");
+        }
+        
+        public void Move()
+        {
+            if (DistanceTraveled < MaxDistance)
+            {
+                switch (Direction)
+                {
+                    case DevHelper.Up:
+                        Erase();
+                        Y = Y - 1;
+                        Draw();
+                        break;
+                    case DevHelper.Down:
+                        Erase();
+                        Y = Y + 1;
+                        Draw();
+                        break;
+                    case DevHelper.Right:
+                        Erase();
+                        X = X + 1;
+                        Draw();
+                        break;
+                    case DevHelper.Left:
+                        Erase();
+                        X = X - 1;
+                        Draw();
+                        break;
+                }
+                DistanceTraveled++;
+                MoveStopwatch.Restart();
+            }
+            else if (Removed == false)
+            {
+                Erase();
+                Remove();
+            }
+        }
         public void Erase()
         {
             Console.SetCursorPosition(X, Y);
