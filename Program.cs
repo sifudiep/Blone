@@ -9,11 +9,13 @@ namespace Blone
         public static void Main(string[] args)
         {
             var gc = new GameContainer(new Hero());
+            var spawner = new Spawner();
             Console.CursorVisible = false;
             while (true)
             {
                 gc.HandleInput();
                 gc.UpdateProjectiles();
+                spawner.CheckEnemySpawner();
             }  
         }
     }

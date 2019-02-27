@@ -14,6 +14,7 @@ namespace Blone
         private Hero _hero;
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
+        public static List<Enemy> EnemyList = new List<Enemy>();
 
         public void UpdateProjectiles()
         {
