@@ -8,6 +8,7 @@ namespace Blone
         public const string Right = "right";
         public const string Bullet = "Bullet";
         public const string Brra = "Brra";
+        public const string Bom = "Bom";
         public const string OutOfBounds = "OutOfBounds";
         public const string NoCollision = "NoCollision";
     }

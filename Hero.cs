@@ -17,7 +17,7 @@ namespace Blone
             _x = Console.BufferWidth/2;
             _y = Console.BufferHeight/2;
             DrawHero(_x, _y);
-            Gun = new Rifle();
+            Gun = new Shotgun();
         }
 
         public void UpdateVision(string direction)

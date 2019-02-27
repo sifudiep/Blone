@@ -29,6 +29,9 @@ namespace Blone
                     case DevHelper.Brra:
                         GameContainer.ProjectileList.Add(new Brra(x, y, direction));
                         break;
+                    case DevHelper.Bom:
+                        GameContainer.ProjectileList.Add(new Bom(x, y, direction));
+                        break;
                 }
 
                 ShootTimer.Restart();

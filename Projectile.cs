@@ -54,7 +54,21 @@ namespace Blone
         public void Draw()
         {
             Console.SetCursorPosition(X, Y);
-            Console.BackgroundColor = ConsoleColor.Magenta;
+            switch (Type)
+            {
+                case DevHelper.Bullet:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    break;
+                case DevHelper.Brra:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    break;
+                case DevHelper.Bom:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    break;
+            }
             Console.Write("o");
         }
         
