@@ -59,21 +59,25 @@ namespace Blone
                         case ConsoleKey.W:
                             _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Up);
+                            _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.S:
                             _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Down);
+                            _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.A:
                             _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Left);
+                            _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.D:                            
                             _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Right);
+                            _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.R:

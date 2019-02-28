@@ -1,24 +1,25 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Blone
 {
     public class Enemy
     {
-        private int _x;
-        private int _y;
+        public int X;
+        public int Y;
         public int StepsPerKSeconds;
         public int Health;
         public int Damage;
 
         public Enemy(int x, int y)
         {
-            _x = x;
-            _y = y;
+            X = x;
+            Y = y;
         }
 
         public void Draw()
         {
-            Console.SetCursorPosition(_x, _y);
+            Console.SetCursorPosition(X, Y);
             Console.BackgroundColor = ConsoleColor.Red;
             Console.Write("E");
             Console.BackgroundColor = ConsoleColor.Black;
