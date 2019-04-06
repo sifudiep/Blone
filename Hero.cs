@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Security.Cryptography;
 using System.Xml;
 
 namespace Blone
@@ -10,7 +11,9 @@ namespace Blone
         public int Y;
         public string LookDirection;
         public int[,] VisionCoordinates = new int[25,2];
+        public int Health; 
         public Gun Gun;
+        
 
         public Hero()
         {
@@ -20,6 +23,7 @@ namespace Blone
             Gun = new Shotgun();
             LookDirection = DevHelper.Up;
             UpdateVision(LookDirection);
+            Health = DevHelper.StartHealth;
         }
 
         public void CheckEnemiesInVision()
@@ -141,6 +145,7 @@ namespace Blone
             Y = y;
             X = x;
             Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write('H');
         }
 

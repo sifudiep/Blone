@@ -8,6 +8,7 @@ namespace Blone
 {
     public abstract class Gun
     {
+        public string Type;
         public int MagazineSize;
         public int AmmunitionInMagazine;
         public int RoundsPerKSeconds;
@@ -26,20 +27,19 @@ namespace Blone
                     case DevHelper.Bullet:
                         GameContainer.ProjectileList.Add(new Bullet(x, y, direction));
                         break;
-                    case DevHelper.Brra:
-                        GameContainer.ProjectileList.Add(new Brra(x, y, direction));
+                    case DevHelper.RifleAmmo:
+                        GameContainer.ProjectileList.Add(new RifleAmmo(x, y, direction));
                         break;
-                    case DevHelper.Bom:
-                        GameContainer.ProjectileList.Add(new Bom(x, y, direction));
+                    case DevHelper.ShotgunShell:
+                        GameContainer.ProjectileList.Add(new ShotgunShell(x, y, direction));
                         break;
                 }
 
                 ShootTimer.Restart();
                 AmmunitionInMagazine--;
+                GameContainer.UserInterface.UpdateAmmo();
             }
         }
-        public abstract void UpdateGunUI();
-
         public async void Reload()
         {
             ReloadTimer.Start();

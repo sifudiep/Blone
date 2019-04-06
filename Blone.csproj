@@ -38,8 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bom.cs" />
-    <Compile Include="Brra.cs" />
+    <Compile Include="ShotgunShell.cs" />
+    <Compile Include="RifleAmmo.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="DevHelper.cs" />
     <Compile Include="Enemy.cs" />
@@ -53,6 +53,7 @@
     <Compile Include="Rifle.cs" />
     <Compile Include="Shotgun.cs" />
     <Compile Include="Spawner.cs" />
+    <Compile Include="UserInterface.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,11 +15,8 @@ namespace Blone
             RoundsPerKSeconds = 500;
             ReloadMilliseconds = 3000;
             AmmoType = DevHelper.Bullet;
+            Type = DevHelper.Pistol;
             ShootTimer.Start();
-        }
-        public override void UpdateGunUI()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

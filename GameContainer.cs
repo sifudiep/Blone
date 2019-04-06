@@ -9,12 +9,16 @@ namespace Blone
         public GameContainer(Hero hero)
         {
             _hero = hero;
+            UserInterface = new UserInterface(_hero);
+            UserInterface.UpdateHealth();
+            UserInterface.UpdateAmmo();
         }
         private ConsoleKeyInfo _keyInfo;
         private Hero _hero;
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static List<Enemy> EnemyList = new List<Enemy>();
+        public static UserInterface UserInterface;
 
         public void UpdateProjectiles()
         {
@@ -57,25 +61,21 @@ namespace Blone
                             _hero.ChangeLookDirection(DevHelper.Right);
                             break;
                         case ConsoleKey.W:
-                            _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Up);
                             _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.S:
-                            _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Down);
                             _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.A:
-                            _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Left);
                             _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);
                             break;
                         case ConsoleKey.D:                            
-                            _hero.EraseVision();
                             _hero.MoveHero(DevHelper.Right);
                             _hero.EraseVision();
                             _hero.UpdateVision(_hero.LookDirection);

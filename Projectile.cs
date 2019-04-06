@@ -60,11 +60,11 @@ namespace Blone
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     break;
-                case DevHelper.Brra:
+                case DevHelper.RifleAmmo:
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     break;
-                case DevHelper.Bom:
+                case DevHelper.ShotgunShell:
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     break;

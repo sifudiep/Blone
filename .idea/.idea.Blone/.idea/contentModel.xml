@@ -7,8 +7,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Blone.csproj" t="IncludeRecursive" />
       <e p="Blone.sln" t="IncludeFlat" />
-      <e p="Bom.cs" t="Include" />
-      <e p="Brra.cs" t="Include" />
       <e p="Bullet.cs" t="Include" />
       <e p="DevHelper.cs" t="Include" />
       <e p="Enemy.cs" t="Include" />
@@ -24,8 +22,11 @@
         <e p="AssemblyInfo.cs" t="Include" />
       </e>
       <e p="Rifle.cs" t="Include" />
+      <e p="RifleAmmo.cs" t="Include" />
       <e p="Shotgun.cs" t="Include" />
+      <e p="ShotgunShell.cs" t="Include" />
       <e p="Spawner.cs" t="Include" />
+      <e p="UserInterface.cs" t="Include" />
     </e>
   </component>
 </project>

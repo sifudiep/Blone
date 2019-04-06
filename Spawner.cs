@@ -11,14 +11,14 @@ namespace Blone
         private readonly Stopwatch _heroResourceSpawnTimer = new Stopwatch();
         private readonly Random _randomLocation = new Random();
 
-        private int EnemiesPerKSeconds = 1;
+        private int EnemiesPerKSeconds = 1000;
 
         public void CheckEnemySpawner()
         {
             _enemySpawnTimer.Start();
             if (_enemySpawnTimer.ElapsedMilliseconds > EnemiesPerKSeconds)
             {
-                var enemy = new Enemy(_randomLocation.Next(0,Console.BufferWidth), _randomLocation.Next(0, Console.BufferHeight));
+                var enemy = new Enemy(_randomLocation.Next(0,DevHelper.MapWidth), _randomLocation.Next(0, DevHelper.MapHeight));
                 GameContainer.EnemyList.Add(enemy);
                 _enemySpawnTimer.Restart();
             }
