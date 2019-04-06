@@ -13,6 +13,7 @@
       <e p="GameContainer.cs" t="Include" />
       <e p="Gun.cs" t="Include" />
       <e p="Hero.cs" t="Include" />
+      <e p="MapCreator.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Pistol.cs" t="Include" />
@@ -27,6 +28,7 @@
       <e p="ShotgunShell.cs" t="Include" />
       <e p="Spawner.cs" t="Include" />
       <e p="UserInterface.cs" t="Include" />
+      <e p="Wall.cs" t="Include" />
     </e>
   </component>
 </project>

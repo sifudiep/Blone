@@ -17,12 +17,11 @@ namespace Blone
 
         public Hero()
         {
-            X = 20;
-            Y = 20;
-            DrawHero(X, Y);
-            Gun = new Shotgun();
+            X = DevHelper.MapWidth / 2;
+            Y = DevHelper.MapHeight / 2;
+            Gun = new Pistol();
             LookDirection = DevHelper.Up;
-            UpdateVision(LookDirection);
+//            UpdateVision(LookDirection);
             Health = DevHelper.StartHealth;
         }
 
@@ -209,32 +208,20 @@ namespace Blone
             switch (direction)
             {
                 case DevHelper.Up:
-                    if (Y - 1 >= 0 && Y - 1 < Console.BufferHeight)
-                    {
-                        EraseHero();
-                        DrawHero(X, Y-1);
-                    }
+                    EraseHero();
+                    DrawHero(X, Y-1);
                     break;
                 case DevHelper.Down:
-                    if (Y+1 >= 0 && Y+1 < Console.BufferHeight)
-                    {
-                        EraseHero();
-                        DrawHero(X, Y + 1);
-                    }
+                    EraseHero();
+                    DrawHero(X, Y + 1);
                     break;
                 case DevHelper.Left:
-                    if (X - 1 >= 0 && X - 1 < Console.BufferWidth)
-                    {
-                        EraseHero();
-                        DrawHero(X - 1, Y);
-                    }
+                    EraseHero();
+                    DrawHero(X - 1, Y);
                     break;
                 case DevHelper.Right:
-                    if (X + 1 >= 0 && X + 1 < Console.BufferWidth)
-                    {
-                        EraseHero();
-                        DrawHero(X + 1, Y);
-                    }
+                    EraseHero();
+                    DrawHero(X + 1, Y);
                     break;
             }
             CheckEnemiesInVision();

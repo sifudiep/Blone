@@ -10,6 +10,8 @@ namespace Blone
         {
             var gc = new GameContainer(new Hero());
             var spawner = new Spawner();
+            var mapCreator = new MapCreator();
+            mapCreator.MapSettings();
             Console.CursorVisible = false;
             while (true)
             {
@@ -18,5 +20,9 @@ namespace Blone
                 spawner.CheckEnemySpawner();
             }  
         }
+
+        
+        
+        
     }
 }

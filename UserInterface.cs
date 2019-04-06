@@ -24,7 +24,15 @@ namespace Blone
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(DevHelper.XAmmo, DevHelper.YAmmo);
-            Console.Write(CurrentPlayer.Gun.Type + " - " + CurrentPlayer.Gun.AmmunitionInMagazine + "/" + CurrentPlayer.Gun.MagazineSize);
+            if (CurrentPlayer.Gun.AmmunitionInMagazine < 10)
+            {
+                Console.Write(CurrentPlayer.Gun.Type + " - 0" + CurrentPlayer.Gun.AmmunitionInMagazine + "/" + CurrentPlayer.Gun.MagazineSize);
+            }
+            else
+            {
+                Console.Write(CurrentPlayer.Gun.Type + " - " + CurrentPlayer.Gun.AmmunitionInMagazine + "/" + CurrentPlayer.Gun.MagazineSize);
+
+            }
         }
     }
 }

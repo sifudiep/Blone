@@ -18,6 +18,7 @@ namespace Blone
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static List<Enemy> EnemyList = new List<Enemy>();
+        public static List<Wall> WallList = new List<Wall>();
         public static UserInterface UserInterface;
 
         public void UpdateProjectiles()
@@ -38,6 +39,46 @@ namespace Blone
                     }
                 }
             }
+        }
+
+        public bool CheckHeroCollision(string direction)
+        {
+            var possibleX = _hero.X;
+            var possibleY = _hero.Y;
+
+            switch (direction)
+            {
+                case DevHelper.Up:
+                    possibleY -= 1;
+                    break;
+                case DevHelper.Down:
+                    possibleY += 1;
+                    break;
+                case DevHelper.Left:
+                    possibleX -= 1;
+                    break;
+                case DevHelper.Right:
+                    possibleX += 1;
+                    break;
+            }
+
+            for (int i = 0; i < WallList.Count; i++)
+            {
+                if (WallList[i].X == possibleX && WallList[i].Y == possibleY)
+                {
+                    return false;
+                }
+            }
+
+            for (int i = 0; i < EnemyList.Count; i++)
+            {
+                if (EnemyList[i].X == possibleX && EnemyList[i].Y == possibleY)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void HandleInput()
@@ -61,24 +102,36 @@ namespace Blone
                             _hero.ChangeLookDirection(DevHelper.Right);
                             break;
                         case ConsoleKey.W:
-                            _hero.MoveHero(DevHelper.Up);
-                            _hero.EraseVision();
-                            _hero.UpdateVision(_hero.LookDirection);
+                            if (CheckHeroCollision(DevHelper.Up))
+                            {
+                                _hero.MoveHero(DevHelper.Up);
+                                _hero.EraseVision();
+                                _hero.UpdateVision(_hero.LookDirection);
+                            }
                             break;
                         case ConsoleKey.S:
-                            _hero.MoveHero(DevHelper.Down);
-                            _hero.EraseVision();
-                            _hero.UpdateVision(_hero.LookDirection);
+                            if (CheckHeroCollision(DevHelper.Down))
+                            {
+                                _hero.MoveHero(DevHelper.Down);
+                                _hero.EraseVision();
+                                _hero.UpdateVision(_hero.LookDirection);
+                            }
                             break;
                         case ConsoleKey.A:
-                            _hero.MoveHero(DevHelper.Left);
-                            _hero.EraseVision();
-                            _hero.UpdateVision(_hero.LookDirection);
+                            if (CheckHeroCollision(DevHelper.Left))
+                            {
+                                _hero.MoveHero(DevHelper.Left);
+                                _hero.EraseVision();
+                                _hero.UpdateVision(_hero.LookDirection);
+                            }
                             break;
-                        case ConsoleKey.D:                            
-                            _hero.MoveHero(DevHelper.Right);
-                            _hero.EraseVision();
-                            _hero.UpdateVision(_hero.LookDirection);
+                        case ConsoleKey.D:
+                            if (CheckHeroCollision(DevHelper.Right))
+                            {
+                                _hero.MoveHero(DevHelper.Right);
+                                _hero.EraseVision();
+                                _hero.UpdateVision(_hero.LookDirection);
+                            }
                             break;
                         case ConsoleKey.R:
                             _hero.Gun.Reload();

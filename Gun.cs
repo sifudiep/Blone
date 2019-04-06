@@ -45,8 +45,9 @@ namespace Blone
             ReloadTimer.Start();
             Reloading = true;
             await Task.Delay(TimeSpan.FromMilliseconds(ReloadMilliseconds));
-            
+
             AmmunitionInMagazine = MagazineSize;
+            GameContainer.UserInterface.UpdateAmmo();
             Reloading = false;
 
         }
