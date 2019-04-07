@@ -74,7 +74,9 @@ namespace Blone
             {
                 if (EnemyList[i].X == possibleX && EnemyList[i].Y == possibleY)
                 {
-                    return false;
+                    _hero.Health -= DevHelper.EnemyDamage;
+                    GameContainer.UserInterface.UpdateHealth();
+                    EnemyList.RemoveAt(i);
                 }
             }
 

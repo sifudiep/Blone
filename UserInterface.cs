@@ -16,7 +16,15 @@ namespace Blone
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(DevHelper.XHealth, DevHelper.YHealth);
-            Console.Write("Health : " + CurrentPlayer.Health);
+
+            if (CurrentPlayer.Health >= 100)
+            {
+                Console.Write("Health : " + CurrentPlayer.Health);                
+            }
+            else
+            {
+                Console.Write("Health :  " + CurrentPlayer.Health);
+            }
         }
 
         public void UpdateAmmo()

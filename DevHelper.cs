@@ -13,6 +13,7 @@ namespace Blone
         public const string RifleAmmo = "RifleAmmo";
         public const string ShotgunShell = "ShotgunShell";
         public const int StartHealth = 100;
+        public const int EnemyDamage = 20;
         public const int MapWidth = 50;
         public const int MapHeight = 20;
         public const int XHealth = MapWidth-20;

@@ -7,6 +7,7 @@ namespace Blone
     {
         public int X;
         public int Y;
+        public int ListIndex;
         public int StepsPerKSeconds;
         public int Health;
         public int Damage;

@@ -31,6 +31,15 @@ namespace Blone
                     }
                 }
 
+                for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+                {
+                    if (GameContainer.EnemyList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
+                    {
+                        validSpawn = false;
+                        break;
+                    }
+                }
+
                 if (validSpawn)
                 {
                     var enemy = new Enemy(possibleX, possibleY);

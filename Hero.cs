@@ -21,7 +21,7 @@ namespace Blone
             Y = DevHelper.MapHeight / 2;
             Gun = new Pistol();
             LookDirection = DevHelper.Up;
-//            UpdateVision(LookDirection);
+            UpdateVision(LookDirection);
             Health = DevHelper.StartHealth;
         }
 
