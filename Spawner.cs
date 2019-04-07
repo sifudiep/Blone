@@ -18,9 +18,25 @@ namespace Blone
             _enemySpawnTimer.Start();
             if (_enemySpawnTimer.ElapsedMilliseconds > EnemiesPerKSeconds)
             {
-                var enemy = new Enemy(_randomLocation.Next(0,DevHelper.MapWidth), _randomLocation.Next(0, DevHelper.MapHeight));
-                GameContainer.EnemyList.Add(enemy);
-                _enemySpawnTimer.Restart();
+                var possibleX = _randomLocation.Next(2, DevHelper.MapWidth);
+                var possibleY = _randomLocation.Next(3, DevHelper.MapHeight);
+                var validSpawn = true;
+
+                for (int i = 0; i < GameContainer.WallList.Count; i++)
+                {
+                    if (GameContainer.WallList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
+                    {
+                        validSpawn = false;
+                        break;
+                    }
+                }
+
+                if (validSpawn)
+                {
+                    var enemy = new Enemy(possibleX, possibleY);
+                    GameContainer.EnemyList.Add(enemy);
+                    _enemySpawnTimer.Restart();
+                }
             }
         }
     }
