@@ -32,11 +32,6 @@ namespace Blone
                     {
                         ProjectileList[i].Move();
                     }
-                    else
-                    {
-                        ProjectileList[i].Erase();
-                        ProjectileList.RemoveAt(i);
-                    }
                 }
             }
         }

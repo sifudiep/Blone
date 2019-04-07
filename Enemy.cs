@@ -7,10 +7,7 @@ namespace Blone
     {
         public int X;
         public int Y;
-        public int ListIndex;
         public int StepsPerKSeconds;
-        public int Health;
-        public int Damage;
 
         public Enemy(int x, int y)
         {
@@ -23,7 +20,6 @@ namespace Blone
             Console.SetCursorPosition(X, Y);
             Console.BackgroundColor = ConsoleColor.Red;
             Console.Write("E");
-            Console.BackgroundColor = ConsoleColor.Black;
         }
     }
 }

@@ -46,6 +46,44 @@ namespace Blone
             if (X-1 < 0 || X+1 > Console.BufferWidth || Y-1 < 0 || Y+1 > Console.BufferHeight)
                 return DevHelper.OutOfBounds;
             
+            var possibleX = X;
+            var possibleY = Y;
+            switch (Direction)
+            {
+                case DevHelper.Up:
+                    possibleY -= 1;
+                    break;
+                case DevHelper.Down:
+                    possibleY += 1;
+                    break;
+                case DevHelper.Right:
+                    possibleX += 1;
+                    break;
+                case DevHelper.Left:
+                    possibleX -= 1;
+                    break;
+            }
+
+            for (int i = 0; i < GameContainer.WallList.Count; i++)
+            {
+                if (GameContainer.WallList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
+                {
+                    Erase();
+                    Remove();
+                    return DevHelper.WallCollision;
+                }
+            }
+
+            for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+            {
+                if (GameContainer.EnemyList[i].X == X && GameContainer.EnemyList[i].Y == Y)
+                {
+                    Erase();
+                    Remove();
+                    GameContainer.EnemyList.RemoveAt(i);
+                }
+            }
+            
             // Not added enemies to collide with yet.
             
             return DevHelper.NoCollision;

@@ -22,5 +22,7 @@ namespace Blone
         public const int YAmmo = MapHeight + 2;
         public const string OutOfBounds = "OutOfBounds";
         public const string NoCollision = "NoCollision";
+        public const string WallCollision = "WallCollision";
+        public const string EnemyCollision = "EnemyCollision";
     }
 }
