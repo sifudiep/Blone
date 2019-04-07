@@ -27,6 +27,8 @@ namespace Blone
                     Y = y;
                     break;
             }
+
+            CheckCollision();
         }
 
         public int X;

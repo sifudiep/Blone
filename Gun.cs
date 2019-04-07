@@ -22,22 +22,51 @@ namespace Blone
         {
             if (Reloading == false && AmmunitionInMagazine > 0 && ShootTimer.ElapsedMilliseconds > RoundsPerKSeconds)
             {
-                switch (AmmoType)
+                var possibleX = x;
+                var possibleY = y;
+                var notInsideWall = true;
+                switch (direction)
                 {
-                    case DevHelper.Bullet:
-                        GameContainer.ProjectileList.Add(new Bullet(x, y, direction));
+                    case DevHelper.Up:
+                        possibleY -= 1;
                         break;
-                    case DevHelper.RifleAmmo:
-                        GameContainer.ProjectileList.Add(new RifleAmmo(x, y, direction));
+                    case DevHelper.Down:
+                        possibleY += 1;
                         break;
-                    case DevHelper.ShotgunShell:
-                        GameContainer.ProjectileList.Add(new ShotgunShell(x, y, direction));
+                    case DevHelper.Right:
+                        possibleX += 1;
+                        break;
+                    case DevHelper.Left:
+                        possibleX -= 1;
                         break;
                 }
 
-                ShootTimer.Restart();
-                AmmunitionInMagazine--;
-                GameContainer.UserInterface.UpdateAmmo();
+                for (int i = 0; i < GameContainer.WallList.Count; i++)
+                {
+                    if (GameContainer.WallList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
+                        notInsideWall = false;
+                }
+                
+                // If statement inside if statement to limit WallList looping, to minimize performance loss. 
+                if (notInsideWall)
+                {
+                    switch (AmmoType)
+                    {
+                        case DevHelper.Bullet:
+                            GameContainer.ProjectileList.Add(new Bullet(x, y, direction));
+                            break;
+                        case DevHelper.RifleAmmo:
+                            GameContainer.ProjectileList.Add(new RifleAmmo(x, y, direction));
+                            break;
+                        case DevHelper.ShotgunShell:
+                            GameContainer.ProjectileList.Add(new ShotgunShell(x, y, direction));
+                            break;
+                    }
+
+                    ShootTimer.Restart();
+                    AmmunitionInMagazine--;
+                    GameContainer.UserInterface.UpdateAmmo();
+                }
             }
         }
         public async void Reload()
