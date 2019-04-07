@@ -81,6 +81,7 @@ namespace Blone
                     Erase();
                     Remove();
                     GameContainer.EnemyList.RemoveAt(i);
+                    return DevHelper.EnemyCollision;
                 }
             }
             
