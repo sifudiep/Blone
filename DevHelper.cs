@@ -29,5 +29,7 @@ namespace Blone
         public const string RightSide = "RightSide";
         public const string Middle = "Middle";
         public const string UnknownSide = "UnknownSide";
+        public const string NotInfected = "NotInfected";
+        public const string Infected = "Infected";
     }
 }

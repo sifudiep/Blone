@@ -28,6 +28,7 @@
       <e p="ShotgunShell.cs" t="Include" />
       <e p="Spawner.cs" t="Include" />
       <e p="UserInterface.cs" t="Include" />
+      <e p="VisionCoordinate.cs" t="Include" />
       <e p="Wall.cs" t="Include" />
     </e>
   </component>

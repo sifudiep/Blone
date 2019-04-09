@@ -55,6 +55,7 @@
     <Compile Include="Shotgun.cs" />
     <Compile Include="Spawner.cs" />
     <Compile Include="UserInterface.cs" />
+    <Compile Include="VisionCoordinate.cs" />
     <Compile Include="Wall.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

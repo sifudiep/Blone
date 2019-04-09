@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Security.Cryptography;
 using System.Xml;
@@ -11,7 +12,7 @@ namespace Blone
         public int X;
         public int Y;
         public string LookDirection;
-        public int[,] VisionCoordinates = new int[24,2];
+        public List<VisionCoordinate> VisionCoordinates = new List<VisionCoordinate>();
         public int Health; 
         public Gun Gun;
         
@@ -22,21 +23,22 @@ namespace Blone
             Y = DevHelper.MapHeight / 2;
             Gun = new Pistol();
             Health = DevHelper.StartHealth;
+            // Initialize VisionCoordinates list
+            for (int i = 0; i < 24; i++)
+            {
+                VisionCoordinates.Add(new VisionCoordinate());
+            }
         }
 
         public void CheckEnemiesInVision()
         {
             for (int i = 0; i < GameContainer.EnemyList.Count; i++)
             {
-                for (int j = 0; j < VisionCoordinates.Length/2; j++)
+                for (int j = 0; j < VisionCoordinates.Count; j++)
                 {
-                    var enemy = GameContainer.EnemyList[i];
-                    var visionX = VisionCoordinates[j, 0];
-                    var visionY = VisionCoordinates[j, 1];
-                    
-                    if (enemy.X == visionX && enemy.Y == visionY)
+                    if (GameContainer.EnemyList[i].X == VisionCoordinates[i].X && GameContainer.EnemyList[i].Y == VisionCoordinates[i].Y)
                     {
-                        enemy.Draw();
+                        GameContainer.EnemyList[i].Draw();
                     }
 
                 }
@@ -54,33 +56,40 @@ namespace Blone
                         {
                             if (X - j + i > -1 && X - j + i < Console.BufferWidth && Y - i > -1 && Y - i < Console.BufferHeight)
                             {
-                                bool notInsideWall = true;
-                                string side = DevHelper.UnknownSide;
+                                // Checks if the current visionCoordinate collides with a wall.
                                 for (int k = 0; k < GameContainer.WallList.Count; k++)
                                 {
                                     if (GameContainer.WallList[k].X == X - j + i &&
                                         GameContainer.WallList[k].Y == Y - i)
                                     {
-                                        notInsideWall = false;
-                                        if (X - j + i > X)
-                                            side = DevHelper.RightSide;
-                                        else if (X - j + i < X)
-                                            side = DevHelper.LeftSide;
-                                        else if (X - j + i == X)
-                                            side = DevHelper.Middle;
+                                        VisionCoordinates[visionCoordinateTracker].Visible = false;
+                                        VisionCoordinates[visionCoordinateTracker].Infect(VisionCoordinates, visionCoordinateTracker);
+                                       
+                                        
+                                        break;
+                                    }
+                                    
+                                    if (GameContainer.WallList[k].X != X - j + i 
+                                            || GameContainer.WallList[k].Y != Y - i)
+                                    {
+                                        if (VisionCoordinates[visionCoordinateTracker].Visible == false)
+                                        {
+                                            VisionCoordinates[visionCoordinateTracker].Visible = true;
+                                        }
                                     }
                                 }
-
-                                if (notInsideWall)
+                                
+                                if (VisionCoordinates[visionCoordinateTracker].Visible)
                                 {
                                     Console.SetCursorPosition(X - j + i, Y - i);
                                     Console.BackgroundColor = ConsoleColor.Yellow;
                                     Console.Write(" ");
-                                    VisionCoordinates[visionCoordinateTracker, 0] = (X - j + i);
-                                    VisionCoordinates[visionCoordinateTracker, 1] = (Y - i);
+                                    VisionCoordinates[visionCoordinateTracker].X = (X - j + i);
+                                    VisionCoordinates[visionCoordinateTracker].Y = (Y - i);
                                     visionCoordinateTracker++;
+
                                 }
-                                
+
                             }
                         }
                     }
@@ -95,8 +104,8 @@ namespace Blone
                                 Console.SetCursorPosition(X - j + i, Y + i);
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker, 0] = (X - j + i);
-                                VisionCoordinates[visionCoordinateTracker, 1] = (Y + i);
+                                VisionCoordinates[visionCoordinateTracker].X = (X - j + i);
+                                VisionCoordinates[visionCoordinateTracker].Y = (Y + i);
                                 visionCoordinateTracker++;
                             }
                         }
@@ -112,8 +121,8 @@ namespace Blone
                                 Console.SetCursorPosition(X - i, Y - j + i);
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker, 0] = X - i;
-                                VisionCoordinates[visionCoordinateTracker, 1] = Y - j + i;
+                                VisionCoordinates[visionCoordinateTracker].X = X - i;
+                                VisionCoordinates[visionCoordinateTracker].Y = Y - j + i;
                                 visionCoordinateTracker++;
                             }
                         }
@@ -129,8 +138,8 @@ namespace Blone
                                 Console.SetCursorPosition(X + i, Y - j + i);
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker, 0] = X + i;
-                                VisionCoordinates[visionCoordinateTracker, 1] = Y - j + i;
+                                VisionCoordinates[visionCoordinateTracker].X = X + i;
+                                VisionCoordinates[visionCoordinateTracker].Y = Y - j + i;
                                 visionCoordinateTracker++;
                             }
                         }
@@ -144,9 +153,9 @@ namespace Blone
 
         public void EraseVision()
         {
-            for (int i = 0; i < VisionCoordinates.Length/2; i++)
+            for (int i = 0; i < VisionCoordinates.Count; i++)
             {
-                Console.SetCursorPosition(VisionCoordinates[i, 0], VisionCoordinates[i, 1]);
+                Console.SetCursorPosition(VisionCoordinates[i].X, VisionCoordinates[i].Y);
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Write(" ");
             }
