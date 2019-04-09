@@ -2,10 +2,10 @@ namespace Blone
 {
     public static class DevHelper
     {
-        public const string Up = "up";
-        public const string Down = "down";
-        public const string Left = "left";
-        public const string Right = "right";
+        public const string Up = "Up";
+        public const string Down = "Down";
+        public const string Left = "Left";
+        public const string Right = "Right";
         public const string Pistol = "Pistol";
         public const string Rifle = "Rifle";
         public const string Shotgun = "Shotgun";
@@ -20,9 +20,14 @@ namespace Blone
         public const int YHealth = MapHeight + 2;
         public const int XAmmo = 0;
         public const int YAmmo = MapHeight + 2;
+        public const int EnemyLimit = 100;
         public const string OutOfBounds = "OutOfBounds";
         public const string NoCollision = "NoCollision";
         public const string WallCollision = "WallCollision";
         public const string EnemyCollision = "EnemyCollision";
+        public const string LeftSide = "LeftSide";
+        public const string RightSide = "RightSide";
+        public const string Middle = "Middle";
+        public const string UnknownSide = "UnknownSide";
     }
 }

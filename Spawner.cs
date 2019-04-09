@@ -16,7 +16,7 @@ namespace Blone
         public void CheckEnemySpawner()
         {
             _enemySpawnTimer.Start();
-            if (_enemySpawnTimer.ElapsedMilliseconds > EnemiesPerKSeconds)
+            if (_enemySpawnTimer.ElapsedMilliseconds > EnemiesPerKSeconds && GameContainer.EnemyList.Count > DevHelper.EnemyLimit)
             {
                 var possibleX = _randomLocation.Next(2, DevHelper.MapWidth);
                 var possibleY = _randomLocation.Next(3, DevHelper.MapHeight);

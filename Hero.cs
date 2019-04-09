@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Security.Cryptography;
 using System.Xml;
+using Microsoft.SqlServer.Server;
 
 namespace Blone
 {
@@ -10,7 +11,7 @@ namespace Blone
         public int X;
         public int Y;
         public string LookDirection;
-        public int[,] VisionCoordinates = new int[25,2];
+        public int[,] VisionCoordinates = new int[24,2];
         public int Health; 
         public Gun Gun;
         
@@ -20,8 +21,6 @@ namespace Blone
             X = DevHelper.MapWidth / 2;
             Y = DevHelper.MapHeight / 2;
             Gun = new Pistol();
-            LookDirection = DevHelper.Up;
-            UpdateVision(LookDirection);
             Health = DevHelper.StartHealth;
         }
 
@@ -55,12 +54,33 @@ namespace Blone
                         {
                             if (X - j + i > -1 && X - j + i < Console.BufferWidth && Y - i > -1 && Y - i < Console.BufferHeight)
                             {
-                                Console.SetCursorPosition(X - j + i, Y - i);
-                                Console.BackgroundColor = ConsoleColor.Yellow;
-                                Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker, 0] = (X - j + i);
-                                VisionCoordinates[visionCoordinateTracker, 1] = (Y - i);
-                                visionCoordinateTracker++;
+                                bool notInsideWall = true;
+                                string side = DevHelper.UnknownSide;
+                                for (int k = 0; k < GameContainer.WallList.Count; k++)
+                                {
+                                    if (GameContainer.WallList[k].X == X - j + i &&
+                                        GameContainer.WallList[k].Y == Y - i)
+                                    {
+                                        notInsideWall = false;
+                                        if (X - j + i > X)
+                                            side = DevHelper.RightSide;
+                                        else if (X - j + i < X)
+                                            side = DevHelper.LeftSide;
+                                        else if (X - j + i == X)
+                                            side = DevHelper.Middle;
+                                    }
+                                }
+
+                                if (notInsideWall)
+                                {
+                                    Console.SetCursorPosition(X - j + i, Y - i);
+                                    Console.BackgroundColor = ConsoleColor.Yellow;
+                                    Console.Write(" ");
+                                    VisionCoordinates[visionCoordinateTracker, 0] = (X - j + i);
+                                    VisionCoordinates[visionCoordinateTracker, 1] = (Y - i);
+                                    visionCoordinateTracker++;
+                                }
+                                
                             }
                         }
                     }
