@@ -26,7 +26,47 @@ namespace Blone
             // Initialize VisionCoordinates list
             for (int i = 0; i < 24; i++)
             {
-                VisionCoordinates.Add(new VisionCoordinate());
+                var visionCoordinate = new VisionCoordinate()
+                {
+                    FirstVictim = new VisionCoordinate(),
+                    SecondVictim = new VisionCoordinate(),
+                    Infected = false
+                };
+                VisionCoordinates.Add(visionCoordinate);
+            }
+
+            for (int i = 0; i < VisionCoordinates.Count; i++)
+            {
+                int row = 1;
+
+                if (i < 3)
+                    row = 1;
+                if (i > 2 && i < 8)
+                    row = 2;
+                if (i > 7 && i < 15)
+                    row = 3;
+                if (i > 14)
+                    row = 4;
+
+                VisionCoordinates[i].Row = row;
+                
+                // Rightside
+                if (i == 0 || i == 4 || i == 3 || i == 10 || i == 9 || i == 8)
+                {
+                    VisionCoordinates[i].FirstVictim = VisionCoordinates[i + (2 + 2 * row)];
+                    VisionCoordinates[i].SecondVictim = VisionCoordinates[i + (1 + 2 * row)];
+                }
+                // Middle
+                if (i == 1 || i == 5 || i == 11)
+                {
+                    VisionCoordinates[i].FirstVictim = VisionCoordinates[i + (2 + 2 * row)];
+                }
+                // LeftSide
+                if (i == 2 || i == 7 || i == 6 || i == 14 || i == 13 || i == 12)
+                {
+                    VisionCoordinates[i].FirstVictim = VisionCoordinates[i + (2 + 2 * row)];
+                    VisionCoordinates[i].SecondVictim = VisionCoordinates[i + (3 + 2 * row)];
+                }
             }
         }
 
@@ -36,6 +76,8 @@ namespace Blone
             {
                 for (int j = 0; j < VisionCoordinates.Count; j++)
                 {
+                    Console.SetCursorPosition(50, 2);
+                    Console.WriteLine(VisionCoordinates.Count);
                     if (GameContainer.EnemyList[i].X == VisionCoordinates[i].X && GameContainer.EnemyList[i].Y == VisionCoordinates[i].Y)
                     {
                         GameContainer.EnemyList[i].Draw();
@@ -62,33 +104,44 @@ namespace Blone
                                     if (GameContainer.WallList[k].X == X - j + i &&
                                         GameContainer.WallList[k].Y == Y - i)
                                     {
-                                        VisionCoordinates[visionCoordinateTracker].Visible = false;
-                                        VisionCoordinates[visionCoordinateTracker].Infect(VisionCoordinates, visionCoordinateTracker);
-                                       
-                                        
+                                        VisionCoordinates[visionCoordinateTracker].Infected = true;
                                         break;
                                     }
                                     
-                                    if (GameContainer.WallList[k].X != X - j + i 
-                                            || GameContainer.WallList[k].Y != Y - i)
-                                    {
-                                        if (VisionCoordinates[visionCoordinateTracker].Visible == false)
-                                        {
-                                            VisionCoordinates[visionCoordinateTracker].Visible = true;
-                                        }
-                                    }
+//                                    if (GameContainer.WallList[k].X != X - j + i 
+//                                            || GameContainer.WallList[k].Y != Y - i)
+//                                    {
+//                                        if (VisionCoordinates[visionCoordinateTracker].Infected)
+//                                        {
+//                                            VisionCoordinates[visionCoordinateTracker].Infected = false;
+//                                        }
+//                                    }
                                 }
                                 
-                                if (VisionCoordinates[visionCoordinateTracker].Visible)
+                                // Writes and sets visionCoordinate
+                                if (VisionCoordinates[visionCoordinateTracker].Infected == false)
                                 {
                                     Console.SetCursorPosition(X - j + i, Y - i);
                                     Console.BackgroundColor = ConsoleColor.Yellow;
                                     Console.Write(" ");
                                     VisionCoordinates[visionCoordinateTracker].X = (X - j + i);
                                     VisionCoordinates[visionCoordinateTracker].Y = (Y - i);
-                                    visionCoordinateTracker++;
-
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = false;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = false;
+                                    }
+                                    
                                 }
+                                else
+                                {
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = true;
+                                    }
+                                }
+                                visionCoordinateTracker++;
 
                             }
                         }
