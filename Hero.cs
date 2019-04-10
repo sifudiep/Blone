@@ -77,8 +77,7 @@ namespace Blone
                 for (int j = 0; j < VisionCoordinates.Count; j++)
                 {
                     Console.SetCursorPosition(50, 2);
-                    Console.WriteLine(VisionCoordinates.Count);
-                    if (GameContainer.EnemyList[i].X == VisionCoordinates[i].X && GameContainer.EnemyList[i].Y == VisionCoordinates[i].Y)
+                    if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y)
                     {
                         GameContainer.EnemyList[i].Draw();
                     }
