@@ -17,7 +17,7 @@ namespace Blone
         {
             Console.SetCursorPosition(X,Y);
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.Write("#");
+            Console.Write('#');
         }
     }
 }

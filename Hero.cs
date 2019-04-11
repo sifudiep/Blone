@@ -26,12 +26,24 @@ namespace Blone
             // Initialize VisionCoordinates list
             for (int i = 0; i < 24; i++)
             {
-                var visionCoordinate = new VisionCoordinate()
+                VisionCoordinate visionCoordinate; 
+                if (i == 0 || i == 1 || i == 2)
                 {
-                    FirstVictim = new VisionCoordinate(),
-                    SecondVictim = new VisionCoordinate(),
-                    Infected = false
-                };
+                    visionCoordinate = new VisionCoordinate()
+                    {
+                        FirstVictim = new VisionCoordinate(),
+                        SecondVictim = new VisionCoordinate(),
+                        Essential = true,
+                    };
+                }
+                else
+                {
+                    visionCoordinate = new VisionCoordinate()
+                    {
+                        FirstVictim = new VisionCoordinate(),
+                        SecondVictim = new VisionCoordinate(),
+                    };
+                }
                 VisionCoordinates.Add(visionCoordinate);
             }
 
@@ -96,15 +108,25 @@ namespace Blone
                             if (X - j + i > -1 && X - j + i < Console.BufferWidth && Y - i > -1 && Y - i < Console.BufferHeight)
                             {
                                 // Checks if the current visionCoordinate collides with a wall.
-                                for (int k = 0; k < GameContainer.WallList.Count; k++)
+                                for (int k = 0; k < GameContainer.WallList.Length; k++)
                                 {
                                     if (GameContainer.WallList[k].X == X - j + i &&
                                         GameContainer.WallList[k].Y == Y - i)
                                     {
                                         VisionCoordinates[visionCoordinateTracker].Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].InsideWall = true;
                                         break;
                                     }
+
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall = false;
                                     
+                                }
+
+                                if (VisionCoordinates[visionCoordinateTracker].Infected &&
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall == false &&
+                                    VisionCoordinates[visionCoordinateTracker].Essential)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].Infected = false;
                                 }
                                 
                                 // Writes and sets visionCoordinate

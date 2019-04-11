@@ -18,7 +18,7 @@ namespace Blone
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static List<Enemy> EnemyList = new List<Enemy>();
-        public static List<Wall> WallList = new List<Wall>();
+        public static Wall[] WallList;
         public static UserInterface UserInterface;
 
         public void UpdateProjectiles()
@@ -57,7 +57,7 @@ namespace Blone
                     break;
             }
 
-            for (int i = 0; i < WallList.Count; i++)
+            for (int i = 0; i < WallList.Length; i++)
             {
                 if (WallList[i].X == possibleX && WallList[i].Y == possibleY)
                 {

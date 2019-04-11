@@ -4,6 +4,7 @@ namespace Blone
 {
     public class MapCreator
     {
+        public int WallListIndex = 0;
         public void MapSettings()
         {
             Console.CursorVisible = false;
@@ -21,8 +22,9 @@ namespace Blone
             for (int i = from; i < to; i++)
             {
                 var wall = new Wall(i, y);
-                GameContainer.WallList.Add(wall);
+                GameContainer.WallList[WallListIndex] = wall;
                 wall.Draw();
+                WallListIndex++;
             }
         }
 
@@ -31,8 +33,9 @@ namespace Blone
             for (int i = from; i < to; i++)
             {
                 var wall = new Wall(x, i);
-                GameContainer.WallList.Add(wall);
+                GameContainer.WallList[WallListIndex] = wall;
                 wall.Draw();
+                WallListIndex++;
             }
         }
     }

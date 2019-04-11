@@ -23,7 +23,7 @@ namespace Blone
                 var possibleY = _randomLocation.Next(3, DevHelper.MapHeight);
                 var validSpawn = true;
 
-                for (int i = 0; i < GameContainer.WallList.Count; i++)
+                for (int i = 0; i < GameContainer.WallList.Length; i++)
                 {
                     if (GameContainer.WallList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
                     {

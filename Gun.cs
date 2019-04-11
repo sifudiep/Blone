@@ -41,7 +41,7 @@ namespace Blone
                         break;
                 }
 
-                for (int i = 0; i < GameContainer.WallList.Count; i++)
+                for (int i = 0; i < GameContainer.WallList.Length; i++)
                 {
                     if (GameContainer.WallList[i].X == possibleX && GameContainer.WallList[i].Y == possibleY)
                         notInsideWall = false;

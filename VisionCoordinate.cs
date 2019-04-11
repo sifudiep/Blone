@@ -10,6 +10,8 @@ namespace Blone
         public int Y;
         public int Row;
         public bool Infected;
+        public bool InsideWall;
+        public bool Essential;
         public VisionCoordinate FirstVictim;
         public VisionCoordinate SecondVictim;
     }
