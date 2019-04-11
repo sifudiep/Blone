@@ -65,6 +65,17 @@ namespace Blone
                     possibleX -= 1;
                     break;
             }
+            
+            for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+            {
+                if (GameContainer.EnemyList[i].X == X && GameContainer.EnemyList[i].Y == Y)
+                {
+                    Erase();
+                    Remove();
+                    GameContainer.EnemyList.RemoveAt(i);
+                    return DevHelper.EnemyCollision;
+                }
+            }
 
             for (int i = 0; i < GameContainer.WallList.Length; i++)
             {
@@ -76,16 +87,7 @@ namespace Blone
                 }
             }
 
-            for (int i = 0; i < GameContainer.EnemyList.Count; i++)
-            {
-                if (GameContainer.EnemyList[i].X == X && GameContainer.EnemyList[i].Y == Y)
-                {
-                    Erase();
-                    Remove();
-                    GameContainer.EnemyList.RemoveAt(i);
-                    return DevHelper.EnemyCollision;
-                }
-            }
+            
             
             // Not added enemies to collide with yet.
             

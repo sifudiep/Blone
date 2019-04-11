@@ -323,12 +323,7 @@ namespace Blone
                                 }
                                 visionCoordinateTracker++;
                             }
-                            
-                            
-                            
                         }
-                        
-                        
                     }
                     break;
             }
