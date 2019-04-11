@@ -14,9 +14,7 @@ namespace Blone
 
         private readonly Hero _hero; 
         private readonly Stopwatch _enemySpawnTimer = new Stopwatch();
-        private readonly Stopwatch _heroResourceSpawnTimer = new Stopwatch();
         private readonly Random _randomLocation = new Random();
-        public static int EnemyCounter = 0;
 
         private int EnemiesPerKSeconds = 1000;
 
@@ -50,9 +48,8 @@ namespace Blone
 
                 if (validSpawn)
                 {
-                    var enemy = new Enemy(possibleX, possibleY, _hero) {Index = EnemyCounter};
+                    var enemy = new Enemy(possibleX, possibleY, _hero);
                     GameContainer.EnemyList.Add(enemy);
-                    EnemyCounter++;
                     _enemySpawnTimer.Restart();
                 }
             }

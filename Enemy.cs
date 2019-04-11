@@ -7,7 +7,6 @@ namespace Blone
     {
         public int X;
         public int Y;
-        public int Index;
         private Hero _target; 
 
         public Enemy(int x, int y, Hero hero)
@@ -26,9 +25,15 @@ namespace Blone
 
         public void Remove()
         {
-            GameContainer.EnemyList.RemoveAt(Index);
-            Spawner.EnemyCounter--;
+            for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+            {
+                if (GameContainer.EnemyList[i].X == X && GameContainer.EnemyList[i].Y == Y)
+                {
+                    GameContainer.EnemyList.RemoveAt(i);
+                }
+            }
         }
+        
 
         public void HuntHero()
         {
