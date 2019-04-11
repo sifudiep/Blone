@@ -163,15 +163,52 @@ namespace Blone
                     {
                         for (int j = 0; j < 1 + 2*i; j++)
                         {
-                            if (X - j + i > -1 && X - j + i < Console.BufferWidth && Y + i > -1 && Y + i < Console.BufferHeight)
+                            // Checks if the current visionCoordinate collides with a wall.
+                            for (int k = 0; k < GameContainer.WallList.Length; k++)
+                            {
+                                if (GameContainer.WallList[k].X == X - j + i &&
+                                    GameContainer.WallList[k].Y == Y + i)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].Infected = true;
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall = true;
+                                    break;
+                                }
+
+                                VisionCoordinates[visionCoordinateTracker].InsideWall = false;
+                                
+                            }
+
+                            if (VisionCoordinates[visionCoordinateTracker].Infected &&
+                                VisionCoordinates[visionCoordinateTracker].InsideWall == false &&
+                                VisionCoordinates[visionCoordinateTracker].Essential)
+                            {
+                                VisionCoordinates[visionCoordinateTracker].Infected = false;
+                            }
+                            
+                            // Writes and sets visionCoordinate
+                            if (VisionCoordinates[visionCoordinateTracker].Infected == false )
                             {
                                 Console.SetCursorPosition(X - j + i, Y + i);
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.Write(" ");
                                 VisionCoordinates[visionCoordinateTracker].X = (X - j + i);
                                 VisionCoordinates[visionCoordinateTracker].Y = (Y + i);
-                                visionCoordinateTracker++;
+                                if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = false;
+                                    VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = false;
+                                }
+                                
                             }
+                            else
+                            {
+                                if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = true;
+                                    VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = true;
+                                }
+                            }
+                            visionCoordinateTracker++;
                         }
                     }
                     break;
@@ -182,12 +219,52 @@ namespace Blone
                         {
                             if (X - i > -1 && X - i < Console.BufferWidth && Y - j + i > -1 && Y - j + i < Console.BufferHeight)
                             {
-                                Console.SetCursorPosition(X - i, Y - j + i);
-                                Console.BackgroundColor = ConsoleColor.Yellow;
-                                Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker].X = X - i;
-                                VisionCoordinates[visionCoordinateTracker].Y = Y - j + i;
+                                for (int k = 0; k < GameContainer.WallList.Length; k++)
+                                {
+                                    if (GameContainer.WallList[k].X == X - i &&
+                                        GameContainer.WallList[k].Y == Y - j + i)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].InsideWall = true;
+                                        break;
+                                    }
+
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall = false;
+                                    
+                                }
+
+                                if (VisionCoordinates[visionCoordinateTracker].Infected &&
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall == false &&
+                                    VisionCoordinates[visionCoordinateTracker].Essential)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].Infected = false;
+                                }
+                                
+                                // Writes and sets visionCoordinate
+                                if (VisionCoordinates[visionCoordinateTracker].Infected == false )
+                                {
+                                    Console.SetCursorPosition(X - i, Y - j + i);
+                                    Console.BackgroundColor = ConsoleColor.Yellow;
+                                    Console.Write(" ");
+                                    VisionCoordinates[visionCoordinateTracker].X = (X - i);
+                                    VisionCoordinates[visionCoordinateTracker].Y = (Y - j + i);
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = false;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = false;
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = true;
+                                    }
+                                }
                                 visionCoordinateTracker++;
+                                
                             }
                         }
                     }
@@ -199,14 +276,59 @@ namespace Blone
                         {
                             if (X + i > -1 && X + i < Console.BufferWidth && Y - j + i > -1 && Y - j + i < Console.BufferHeight)
                             {
-                                Console.SetCursorPosition(X + i, Y - j + i);
-                                Console.BackgroundColor = ConsoleColor.Yellow;
-                                Console.Write(" ");
-                                VisionCoordinates[visionCoordinateTracker].X = X + i;
-                                VisionCoordinates[visionCoordinateTracker].Y = Y - j + i;
+                                
+                                for (int k = 0; k < GameContainer.WallList.Length; k++)
+                                {
+                                    if (GameContainer.WallList[k].X == X + i &&
+                                        GameContainer.WallList[k].Y == Y - j + i)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].InsideWall = true;
+                                        break;
+                                    }
+
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall = false;
+                                    
+                                }
+
+                                if (VisionCoordinates[visionCoordinateTracker].Infected &&
+                                    VisionCoordinates[visionCoordinateTracker].InsideWall == false &&
+                                    VisionCoordinates[visionCoordinateTracker].Essential)
+                                {
+                                    VisionCoordinates[visionCoordinateTracker].Infected = false;
+                                }
+                                
+                                // Writes and sets visionCoordinate
+                                if (VisionCoordinates[visionCoordinateTracker].Infected == false )
+                                {
+                                    Console.SetCursorPosition(X + i, Y - j + i);
+                                    Console.BackgroundColor = ConsoleColor.Yellow;
+                                    Console.Write(" ");
+                                    VisionCoordinates[visionCoordinateTracker].X = (X + i);
+                                    VisionCoordinates[visionCoordinateTracker].Y = (Y - j + i);
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = false;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = false;
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    if (VisionCoordinates[visionCoordinateTracker].Row < 4)
+                                    {
+                                        VisionCoordinates[visionCoordinateTracker].FirstVictim.Infected = true;
+                                        VisionCoordinates[visionCoordinateTracker].SecondVictim.Infected = true;
+                                    }
+                                }
                                 visionCoordinateTracker++;
                             }
+                            
+                            
+                            
                         }
+                        
+                        
                     }
                     break;
             }
