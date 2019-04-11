@@ -9,7 +9,7 @@ namespace Blone
         public int X;
         public int Y;
         public int Row;
-        public bool Infected = false;
+        public bool Infected;
         public VisionCoordinate FirstVictim;
         public VisionCoordinate SecondVictim;
     }

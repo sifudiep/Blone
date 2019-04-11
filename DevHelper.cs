@@ -20,7 +20,7 @@ namespace Blone
         public const int YHealth = MapHeight + 2;
         public const int XAmmo = 0;
         public const int YAmmo = MapHeight + 2;
-        public const int EnemyLimit = 100;
+        public const int EnemyLimit = 20;
         public const string OutOfBounds = "OutOfBounds";
         public const string NoCollision = "NoCollision";
         public const string WallCollision = "WallCollision";

@@ -76,12 +76,10 @@ namespace Blone
             {
                 for (int j = 0; j < VisionCoordinates.Count; j++)
                 {
-                    Console.SetCursorPosition(50, 2);
                     if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y)
                     {
                         GameContainer.EnemyList[i].Draw();
                     }
-
                 }
             }
         }
@@ -107,18 +105,10 @@ namespace Blone
                                         break;
                                     }
                                     
-//                                    if (GameContainer.WallList[k].X != X - j + i 
-//                                            || GameContainer.WallList[k].Y != Y - i)
-//                                    {
-//                                        if (VisionCoordinates[visionCoordinateTracker].Infected)
-//                                        {
-//                                            VisionCoordinates[visionCoordinateTracker].Infected = false;
-//                                        }
-//                                    }
                                 }
                                 
                                 // Writes and sets visionCoordinate
-                                if (VisionCoordinates[visionCoordinateTracker].Infected == false)
+                                if (VisionCoordinates[visionCoordinateTracker].Infected == false )
                                 {
                                     Console.SetCursorPosition(X - j + i, Y - i);
                                     Console.BackgroundColor = ConsoleColor.Yellow;
