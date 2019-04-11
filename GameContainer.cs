@@ -15,11 +15,13 @@ namespace Blone
         }
         private ConsoleKeyInfo _keyInfo;
         private Hero _hero;
+        private readonly Stopwatch _enemyMoveTimer = new Stopwatch();
         
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static List<Enemy> EnemyList = new List<Enemy>();
         public static Wall[] WallList;
         public static UserInterface UserInterface;
+        
 
         public void UpdateProjectiles()
         {
@@ -32,6 +34,19 @@ namespace Blone
                     {
                         ProjectileList[i].Move();
                     }
+                }
+            }
+        }
+
+        public void UpdateEnemies()
+        {
+            _enemyMoveTimer.Start();
+            if (_enemyMoveTimer.ElapsedMilliseconds > DevHelper.EnemyMovesPerKSeconds)
+            {
+                for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+                {
+                    GameContainer.EnemyList[i].HuntHero();
+                    _enemyMoveTimer.Restart();
                 }
             }
         }
@@ -70,7 +85,7 @@ namespace Blone
                 if (EnemyList[i].X == possibleX && EnemyList[i].Y == possibleY)
                 {
                     _hero.Health -= DevHelper.EnemyDamage;
-                    GameContainer.UserInterface.UpdateHealth();
+                    UserInterface.UpdateHealth();
                     EnemyList.RemoveAt(i);
                 }
             }

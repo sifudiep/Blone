@@ -20,16 +20,11 @@ namespace Blone
         public const int YHealth = MapHeight + 2;
         public const int XAmmo = 0;
         public const int YAmmo = MapHeight + 2;
-        public const int EnemyLimit = 20;
+        public const int EnemyLimit = 50;
+        public const int EnemyMovesPerKSeconds = 1250;
         public const string OutOfBounds = "OutOfBounds";
         public const string NoCollision = "NoCollision";
         public const string WallCollision = "WallCollision";
         public const string EnemyCollision = "EnemyCollision";
-        public const string LeftSide = "LeftSide";
-        public const string RightSide = "RightSide";
-        public const string Middle = "Middle";
-        public const string UnknownSide = "UnknownSide";
-        public const string NotInfected = "NotInfected";
-        public const string Infected = "Infected";
     }
 }

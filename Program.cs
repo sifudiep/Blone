@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Xml;
 
 namespace Blone
@@ -8,8 +9,9 @@ namespace Blone
     {
         public static void Main(string[] args)
         {
-            var gc = new GameContainer(new Hero());
-            var spawner = new Spawner();
+            var hero = new Hero();
+            var gc = new GameContainer(hero);
+            var spawner = new Spawner(hero);
             GameContainer.WallList = new Wall[196];
             var mapCreator = new MapCreator();
             mapCreator.MapSettings();
@@ -19,6 +21,8 @@ namespace Blone
                 gc.HandleInput();
                 gc.UpdateProjectiles();
                 spawner.CheckEnemySpawner();
+                gc.UpdateEnemies();
+                Thread.Sleep(1);
             }  
         }
 
