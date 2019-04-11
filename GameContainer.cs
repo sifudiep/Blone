@@ -101,32 +101,37 @@ namespace Blone
                         case ConsoleKey.W:
                             if (CheckHeroCollision(DevHelper.Up))
                             {
-                                _hero.EraseVision();
                                 _hero.MoveHero(DevHelper.Up);
+                                _hero.EraseVision();
+                                _hero.DrawHero();
                                 _hero.UpdateVision(_hero.LookDirection);
                             }
                             break;
                         case ConsoleKey.S:
                             if (CheckHeroCollision(DevHelper.Down))
                             {
-                                _hero.EraseVision();
                                 _hero.MoveHero(DevHelper.Down);
+                                _hero.EraseVision();
+                                _hero.DrawHero();
                                 _hero.UpdateVision(_hero.LookDirection);
                             }
                             break;
                         case ConsoleKey.A:
                             if (CheckHeroCollision(DevHelper.Left))
                             {
-                                _hero.EraseVision();
                                 _hero.MoveHero(DevHelper.Left);
+                                _hero.EraseVision();
+                                _hero.DrawHero();
                                 _hero.UpdateVision(_hero.LookDirection);
                             }
                             break;
                         case ConsoleKey.D:
                             if (CheckHeroCollision(DevHelper.Right))
                             {
-                                _hero.EraseVision();
                                 _hero.MoveHero(DevHelper.Right);
+                                _hero.EraseVision();
+                                _hero.DrawHero();
+                                _hero.DrawHero();
                                 _hero.UpdateVision(_hero.LookDirection);
                             }
                             break;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Xml;
 using Microsoft.SqlServer.Server;
@@ -90,6 +91,7 @@ namespace Blone
                 {
                     if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y)
                     {
+
                         GameContainer.EnemyList[i].Draw();
                     }
                 }
@@ -349,6 +351,12 @@ namespace Blone
             Console.Write(' ');
         }
 
+        public void DrawHero()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write('H');
+        }
         public void DrawHero(int x, int y)
         {
             Y = y;
