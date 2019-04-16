@@ -22,7 +22,7 @@ namespace Blone
                 gc.UpdateProjectiles();
                 spawner.CheckEnemySpawner();
                 gc.UpdateEnemies();
-                Thread.Sleep(1);
+                Thread.Sleep(10);
             }  
         }
 

@@ -33,6 +33,16 @@ namespace Blone
         }
 
         /// <summary>
+        /// Erases enemy from console.
+        /// </summary>
+        public void Erase()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(' ');
+        }
+
+        /// <summary>
         /// Removes the enemy object from the EnemyList in GameContainer.
         /// </summary>
         public void Remove()
@@ -122,21 +132,40 @@ namespace Blone
         /// <param name="direction">Direction for the objects move.</param>
         public void Move(string direction)
         {
+            var possibleX = X;
+            var possibleY = Y;
+            
             switch (direction)
             {
                 case DevHelper.Up:
-                    Y--;
+                    possibleY--;
                     break;
                 case DevHelper.Down:
-                    Y++;
+                    possibleY++;
                     break;
                 case DevHelper.Left:
-                    X--;
+                    possibleX--;
                     break;
                 case DevHelper.Right:
-                    X++;
+                    possibleX++;
                     break;
             }
+            
+            for (int i = 0; i < Hero.VisionCoordinates.Count; i++)
+            {
+                if (Hero.VisionCoordinates[i].X == possibleX && Hero.VisionCoordinates[i].Y == possibleY
+                    )
+                {
+                    Erase();
+                    X = possibleX;
+                    Y = possibleY;
+                    Draw();
+                    break;
+                }
+            }
+            
+            X = possibleX;
+            Y = possibleY;
         }
     }
 }
