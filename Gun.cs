@@ -17,7 +17,13 @@ namespace Blone
         public bool Reloading = false;
         public Stopwatch ShootTimer = new Stopwatch();
         public Stopwatch ReloadTimer = new Stopwatch();
-
+        
+        /// <summary>
+        /// Shoots a projectile object.
+        /// </summary>
+        /// <param name="x">What x coordinate it should spawn in.</param>
+        /// <param name="y">What y coordinate it should spawn in</param>
+        /// <param name="direction">What direction it should have.</param>
         public void Shoot(int x, int y, string direction)
         {
             if (Reloading == false && AmmunitionInMagazine > 0 && ShootTimer.ElapsedMilliseconds > RoundsPerKSeconds)
@@ -69,6 +75,9 @@ namespace Blone
                 }
             }
         }
+        /// <summary>
+        /// Reloads the weapon, hero cannot shoot during reload. 
+        /// </summary>
         public async void Reload()
         {
             ReloadTimer.Start();

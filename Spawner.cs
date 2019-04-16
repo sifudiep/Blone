@@ -7,6 +7,10 @@ namespace Blone
 {
     public class Spawner
     {
+        /// <summary>
+        /// Sets _hero as the parameter hero.
+        /// </summary>
+        /// <param name="hero">Current hero player.</param>
         public Spawner(Hero hero)
         {
             _hero = hero;
@@ -18,6 +22,9 @@ namespace Blone
 
         private int EnemiesPerKSeconds = 1000;
 
+        /// <summary>
+        /// Checks if enemy should spawn with a _enemySpawnTimer, spawns if it should, doesn't spawn if it shouldn't. 
+        /// </summary>
         public void CheckEnemySpawner()
         {
             _enemySpawnTimer.Start();

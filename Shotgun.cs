@@ -2,6 +2,9 @@ namespace Blone
 {
     public class Shotgun : Gun
     {
+        /// <summary>
+        /// Sets the Gun fields for the shotgun derivative class. 
+        /// </summary>
         public Shotgun()
         {
             MagazineSize = 5;

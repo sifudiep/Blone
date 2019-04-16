@@ -6,6 +6,10 @@ namespace Blone
 {
     public class GameContainer
     {
+        /// <summary>
+        /// Updates the interface for the user. 
+        /// </summary>
+        /// <param name="hero">Uses hero param to set _hero.</param>
         public GameContainer(Hero hero)
         {
             _hero = hero;
@@ -23,6 +27,9 @@ namespace Blone
         public static UserInterface UserInterface;
         
 
+        /// <summary>
+        /// Updates all projectiles if enough time has elapsed.
+        /// </summary>
         public void UpdateProjectiles()
         {
             for (int i = 0; i < ProjectileList.Count; i++)
@@ -38,19 +45,27 @@ namespace Blone
             }
         }
 
+        /// <summary>
+        /// Updates all enemies in the enemyList
+        /// </summary>
         public void UpdateEnemies()
         {
             _enemyMoveTimer.Start();
             if (_enemyMoveTimer.ElapsedMilliseconds > DevHelper.EnemyMovesPerKSeconds)
             {
-                for (int i = 0; i < GameContainer.EnemyList.Count; i++)
+                for (int i = 0; i < EnemyList.Count; i++)
                 {
-                    GameContainer.EnemyList[i].HuntHero();
+                    EnemyList[i].HuntHero();
                     _enemyMoveTimer.Restart();
                 }
             }
         }
 
+        /// <summary>
+        /// Checks if/what hero collides with. 
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public bool CheckHeroCollision(string direction)
         {
             var possibleX = _hero.X;
@@ -93,6 +108,9 @@ namespace Blone
             return true;
         }
 
+        /// <summary>
+        /// Handles all inputs from the user. 
+        /// </summary>
         public void HandleInput()
         {
             if (Console.KeyAvailable)

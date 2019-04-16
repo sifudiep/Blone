@@ -18,6 +18,10 @@ namespace Blone
         public Gun Gun;
         
 
+        /// <summary>
+        /// Sets start values for the multiple fields.
+        /// Also initializes the VisionCoordinates. 
+        /// </summary>
         public Hero()
         {
             X = DevHelper.MapWidth / 2;
@@ -83,6 +87,9 @@ namespace Blone
             }
         }
 
+        /// <summary>
+        /// Checks if enemies collides with the visionCoordinates. 
+        /// </summary>
         public void CheckEnemiesInVision()
         {
             for (int i = 0; i < GameContainer.EnemyList.Count; i++)
@@ -91,12 +98,16 @@ namespace Blone
                 {
                     if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y)
                     {
-
                         GameContainer.EnemyList[i].Draw();
                     }
                 }
             }
         }
+        
+        /// <summary>
+        /// Updates the visionCoordinates to fit the direction and coordinates of the Hero.
+        /// </summary>
+        /// <param name="direction"></param>
         public void UpdateVision(string direction)
         {
             var visionCoordinateTracker = 0;
@@ -334,6 +345,9 @@ namespace Blone
 
         }
 
+        /// <summary>
+        /// Erases the vision of the hero at its current coordinates.
+        /// </summary>
         public void EraseVision()
         {
             for (int i = 0; i < VisionCoordinates.Count; i++)
@@ -344,6 +358,9 @@ namespace Blone
             }
         }
 
+        /// <summary>
+        /// Erases the hero at its current coordinates.
+        /// </summary>
         public void EraseHero()
         {
             Console.SetCursorPosition(X,Y);
@@ -351,12 +368,20 @@ namespace Blone
             Console.Write(' ');
         }
 
+        /// <summary>
+        ///  Draws the hero at its current coordinates. 
+        /// </summary>
         public void DrawHero()
         {
             Console.SetCursorPosition(X, Y);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write('H');
         }
+        /// <summary>
+        /// Draws hero at specific coordinates. 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public void DrawHero(int x, int y)
         {
             Y = y;
@@ -366,6 +391,10 @@ namespace Blone
             Console.Write('H');
         }
 
+        /// <summary>
+        /// Changes look direction for the hero.
+        /// </summary>
+        /// <param name="direction">Direction which hero should have.</param>
         public void ChangeLookDirection(string direction)
         {
             switch (direction) 
@@ -421,6 +450,10 @@ namespace Blone
             }
         }
         
+        /// <summary>
+        /// Moves hero in the parameter direction.
+        /// </summary>
+        /// <param name="direction">What direction the hero should move in.</param>
         public void MoveHero(string direction)
         {
             switch (direction)

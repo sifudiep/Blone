@@ -6,11 +6,20 @@ namespace Blone
     {
         public readonly Hero CurrentPlayer;
 
+        /// <summary>
+        /// Reads the health and ammo from the current player. 
+        /// </summary>
+        /// <param name="currentPlayer">Same player object as in the game container, used for updating the health and ammo.</param>
         public UserInterface(Hero currentPlayer)
         {
             CurrentPlayer = currentPlayer;
         }
 
+        
+        
+        /// <summary>
+        /// Updates the health text in the user interface. 
+        /// </summary>
         public void UpdateHealth()
         {
             Console.BackgroundColor = ConsoleColor.Black;
@@ -27,6 +36,10 @@ namespace Blone
             }
         }
 
+        
+        /// <summary>
+        /// Updates the ammo text in the user interface.
+        /// </summary>
         public void UpdateAmmo()
         {
             Console.BackgroundColor = ConsoleColor.Black;

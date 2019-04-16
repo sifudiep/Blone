@@ -9,6 +9,12 @@ namespace Blone
         public int Y;
         private Hero _target; 
 
+        /// <summary>
+        /// Sets x,y coordinate for the player, also sets it's target as the current Hero.
+        /// </summary>
+        /// <param name="x">Sets the x param to its x coordinate.</param>
+        /// <param name="y">Sets the y param to its y coordinate.</param>
+        /// <param name="hero">Sets the hero param to its _target.</param>
         public Enemy(int x, int y, Hero hero)
         {
             X = x;
@@ -16,6 +22,9 @@ namespace Blone
             _target = hero;
         }
 
+        /// <summary>
+        /// Draws the enemy object. 
+        /// </summary>
         public void Draw()
         {
             Console.SetCursorPosition(X, Y);
@@ -23,6 +32,9 @@ namespace Blone
             Console.Write("E");
         }
 
+        /// <summary>
+        /// Removes the enemy object from the EnemyList in GameContainer.
+        /// </summary>
         public void Remove()
         {
             for (int i = 0; i < GameContainer.EnemyList.Count; i++)
@@ -30,11 +42,15 @@ namespace Blone
                 if (GameContainer.EnemyList[i].X == X && GameContainer.EnemyList[i].Y == Y)
                 {
                     GameContainer.EnemyList.RemoveAt(i);
+                    break;
                 }
             }
         }
         
 
+        /// <summary>
+        /// Algorithm for the enemies to hunt the _target. 
+        /// </summary>
         public void HuntHero()
         {
             // Calculate Y & X distance between enemy and player.
@@ -100,6 +116,10 @@ namespace Blone
             
         }
 
+        /// <summary>
+        /// Move function for the enemy object. 
+        /// </summary>
+        /// <param name="direction">Direction for the objects move.</param>
         public void Move(string direction)
         {
             switch (direction)

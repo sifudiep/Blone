@@ -5,6 +5,12 @@ namespace Blone
 {
     public abstract class Projectile
     {
+        /// <summary>
+        /// Sets up x and y coordinate, also sets what direction for the projectile to continue moving in. 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="direction"></param>
         public Projectile(int x, int y, string direction)
         {
             Direction = direction;
@@ -43,11 +49,12 @@ namespace Blone
         public ConsoleColor FormerBackgroundColor;
         public int DistanceTraveled = 0;
 
+        /// <summary>
+        /// Checks collision for the projectile. 
+        /// </summary>
+        /// <returns>A string describing what type of object it collided with.</returns>
         public string CheckCollision()
-        {
-            if (X-1 < 0 || X+1 > Console.BufferWidth || Y-1 < 0 || Y+1 > Console.BufferHeight)
-                return DevHelper.OutOfBounds;
-            
+        {   
             var possibleX = X;
             var possibleY = Y;
             switch (Direction)
@@ -86,14 +93,13 @@ namespace Blone
                     return DevHelper.WallCollision;
                 }
             }
-
-            
-            
-            // Not added enemies to collide with yet.
             
             return DevHelper.NoCollision;
         }
         
+        /// <summary>
+        /// Draws the object at it's current x and y coordinates. 
+        /// </summary>
         public void Draw()
         {
             Console.SetCursorPosition(X, Y);
@@ -115,6 +121,9 @@ namespace Blone
             Console.Write("o");
         }
         
+        /// <summary>
+        /// Moves the projectile in the current direction.
+        /// </summary>
         public void Move()
         {
             if (DistanceTraveled < MaxDistance)
@@ -151,12 +160,18 @@ namespace Blone
                 Remove();
             }
         }
+        /// <summary>
+        /// Erases the object console.
+        /// </summary>
         public void Erase()
         {
             Console.SetCursorPosition(X, Y);
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Write(" ");
         }
+        /// <summary>
+        /// Removes the object from the projectile list in GameContainer. 
+        /// </summary>
         public void Remove()
         {
             for (int i = 0; i < GameContainer.ProjectileList.Count; i++)
