@@ -43,6 +43,12 @@ namespace Blone
         public void UpdateAmmo()
         {
             Console.BackgroundColor = ConsoleColor.Black;
+            for (int i = 0; i < 20; i++)
+            {
+                Console.SetCursorPosition(i, DevHelper.YAmmo);
+                Console.Write(" ");
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(DevHelper.XAmmo, DevHelper.YAmmo);
             if (CurrentPlayer.Gun.AmmunitionInMagazine < 10)

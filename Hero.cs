@@ -16,6 +16,7 @@ namespace Blone
         public static List<VisionCoordinate> VisionCoordinates = new List<VisionCoordinate>();
         public int Health; 
         public Gun Gun;
+        public List<Gun> Arsenal = new List<Gun>();
         
 
         /// <summary>
@@ -26,7 +27,10 @@ namespace Blone
         {
             X = DevHelper.MapWidth / 2;
             Y = DevHelper.MapHeight / 2;
-            Gun = new Pistol();
+            Arsenal.Add(new Pistol());
+            Arsenal.Add(new Rifle());
+            Arsenal.Add(new Shotgun());
+            Gun = Arsenal[0];
             Health = DevHelper.StartHealth;
             // Initialize VisionCoordinates list
             for (int i = 0; i < 24; i++)
@@ -96,7 +100,9 @@ namespace Blone
             {
                 for (int j = 0; j < VisionCoordinates.Count; j++)
                 {
-                    if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y)
+                    if (GameContainer.EnemyList[i].X == VisionCoordinates[j].X && 
+                        GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y && 
+                        VisionCoordinates[j].InsideWall == false)
                     {
                         GameContainer.EnemyList[i].Draw();
                     }

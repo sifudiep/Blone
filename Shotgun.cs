@@ -10,7 +10,7 @@ namespace Blone
             MagazineSize = 5;
             AmmunitionInMagazine = 5;
             RoundsPerKSeconds = 1000;
-            ReloadMilliseconds = 3000;
+            ReloadMilliseconds = 1000;
             AmmoType = DevHelper.ShotgunShell;
             ShootTimer.Start();
             Type = DevHelper.Shotgun;

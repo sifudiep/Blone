@@ -16,7 +16,7 @@ namespace Blone
         {
             Damage = 10;
             Speed = 50;
-            MaxDistance = 10;
+            MaxDistance = 15;
             Type = DevHelper.Bullet;
             Removed = false;
             Draw();

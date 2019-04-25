@@ -171,9 +171,26 @@ namespace Blone
                         case ConsoleKey.R:
                             _hero.Gun.Reload();
                             break;
-                        case ConsoleKey.Spacebar:
-                            Console.WriteLine("SPACEBAR");
-                            // Use powerup
+                        case ConsoleKey.D1:
+                            if (_hero.Gun.Reloading == false)
+                            {
+                                _hero.Gun = _hero.Arsenal[0];
+                                UserInterface.UpdateAmmo();
+                            }
+                            break;
+                        case ConsoleKey.D2:
+                            if (_hero.Gun.Reloading == false)
+                            {
+                                _hero.Gun = _hero.Arsenal[1];
+                                UserInterface.UpdateAmmo();
+                            }
+                            break;
+                        case ConsoleKey.D3:
+                            if (_hero.Gun.Reloading == false)
+                            {
+                                _hero.Gun = _hero.Arsenal[2];
+                                UserInterface.UpdateAmmo();
+                            }
                             break;
                     }
                 }
