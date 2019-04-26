@@ -104,7 +104,7 @@ namespace Blone
                         GameContainer.EnemyList[i].Y == VisionCoordinates[j].Y && 
                         VisionCoordinates[j].InsideWall == false)
                     {
-                        GameContainer.EnemyList[i].Draw();
+                       GameContainer.EnemyList[i].Draw();
                     }
                 }
             }

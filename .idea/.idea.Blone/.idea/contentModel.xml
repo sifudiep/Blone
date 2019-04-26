@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Mike\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Mike\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Blone.-692142749.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Mike\Desktop\Blone" t="IncludeRecursive">
+    <e p="C:\Users\Mikael Diep\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Mikael Diep\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Blone.413512056.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Mikael Diep\Desktop\Blone" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Blone.csproj" t="IncludeRecursive" />
       <e p="Blone.sln" t="IncludeFlat" />

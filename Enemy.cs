@@ -68,11 +68,6 @@ namespace Blone
             var xDistance = 0;
             string yDirection;
             string xDirection;
-            
-            Console.SetCursorPosition(100, 20);
-            Console.WriteLine("HERO-Y: " + _target.Y);
-            Console.SetCursorPosition(100, 22);
-            Console.WriteLine("HERO-X: " + _target.X);
 
             if (_target.Y >= Y)
             {
@@ -95,15 +90,6 @@ namespace Blone
                 xDistance = X - _target.X;
                 xDirection = DevHelper.Left;
             }
-            
-//            Console.SetCursorPosition(100, 24);
-//            Console.WriteLine("XDistance: " + xDistance);
-//            Console.SetCursorPosition(100, 25);
-//            Console.WriteLine("YDistance: " + yDistance);
-//            Console.SetCursorPosition(100, 26);
-//            Console.WriteLine("XDirection: " + xDirection);
-//            Console.SetCursorPosition(100, 27);
-//            Console.WriteLine("YDirection: " + yDirection);
 
             if (xDistance == 0 && yDistance == 0)
             {
@@ -112,7 +98,6 @@ namespace Blone
                 
                 Remove();                
             }
-                
 
             if (yDistance > xDistance)
             {
@@ -122,8 +107,6 @@ namespace Blone
             {
                 Move(xDirection);
             }
-            
-            
         }
 
         /// <summary>
@@ -153,14 +136,27 @@ namespace Blone
             
             for (int i = 0; i < Hero.VisionCoordinates.Count; i++)
             {
-                if (Hero.VisionCoordinates[i].X == possibleX && Hero.VisionCoordinates[i].Y == possibleY
-                    )
+                if (Hero.VisionCoordinates[i].X == possibleX 
+                    && Hero.VisionCoordinates[i].Y == possibleY)
                 {
-                    Erase();
-                    X = possibleX;
-                    Y = possibleY;
-                    Draw();
-                    break;
+                    bool InsideWall = false;
+                    for (int j = 0; j < GameContainer.WallList.Length; j++)
+                    {
+                        if (GameContainer.WallList[j].X == X
+                            && GameContainer.WallList[j].Y == Y)
+                        {
+                            InsideWall = true;
+                            break;
+                        }
+                    }
+                    if (!InsideWall)
+                    {
+                        Erase();
+                        X = possibleX;
+                        Y = possibleY;
+                        Draw();
+                        break;
+                    }
                 }
             }
             
