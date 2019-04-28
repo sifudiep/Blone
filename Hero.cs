@@ -14,7 +14,7 @@ namespace Blone
         public int Y;
         public string LookDirection;
         public static List<VisionCoordinate> VisionCoordinates = new List<VisionCoordinate>();
-        public int Health; 
+        public int Health;
         public Gun Gun;
         public List<Gun> Arsenal = new List<Gun>();
         

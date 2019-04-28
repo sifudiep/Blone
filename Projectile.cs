@@ -80,6 +80,8 @@ namespace Blone
                     Erase();
                     Remove();
                     GameContainer.EnemyList.RemoveAt(i);
+                    GameContainer.Score += DevHelper.ScorePerKill;
+                    GameContainer.UserInterface.UpdateScore();
                     return DevHelper.EnemyCollision;
                 }
             }

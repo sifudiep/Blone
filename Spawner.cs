@@ -52,6 +52,11 @@ namespace Blone
                         break;
                     }
                 }
+                
+                if (possibleX == _hero.X && possibleY == _hero.Y)
+                {
+                    validSpawn = false;
+                }
 
                 if (validSpawn)
                 {

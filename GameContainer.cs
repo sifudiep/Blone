@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
+using System.Threading;
+using System.Xml;
+using System.Xml.Schema;
 
 namespace Blone
 {
@@ -16,11 +20,16 @@ namespace Blone
             UserInterface = new UserInterface(_hero);
             UserInterface.UpdateHealth();
             UserInterface.UpdateAmmo();
+            UserInterface.UpdateScore();
         }
+
+        private Random rnd = new Random();
         private ConsoleKeyInfo _keyInfo;
         private Hero _hero;
         private readonly Stopwatch _enemyMoveTimer = new Stopwatch();
-        
+
+        public static bool AliveHero = true;
+        public static int Score = 0;
         public static List<Projectile> ProjectileList = new List<Projectile>();
         public static List<Enemy> EnemyList = new List<Enemy>();
         public static Wall[] WallList;
@@ -43,6 +52,87 @@ namespace Blone
                     }
                 }
             }
+        }
+
+        public static void EndGame()
+        {
+            AliveHero = false;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Black;
+            for (int i = 0; i < 44; i++)
+            {
+                for (int j = 0; j < 23; j++)
+                {
+                    Console.SetCursorPosition(DevHelper.XGameOver + i, DevHelper.YGameOver + j);
+                    Console.Write("GAMEOVER!");
+                    Thread.Sleep(1);
+                }
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.SetCursorPosition(DevHelper.XEyeOne + i, DevHelper.YEyeOne + j);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write('o');
+                    Thread.Sleep(10);
+                }
+            }
+            
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.SetCursorPosition(DevHelper.XEyeTwo + i, DevHelper.YEyeTwo + j);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write('o');
+                    Thread.Sleep(10);
+                }
+            }
+
+            for (int i = 0; i < 29; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (!(j > 1 && i > 6 && i < 23))
+                    {
+                        Console.SetCursorPosition(DevHelper.XFrown + i, DevHelper.YFrown + j);
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write('o');
+                        Thread.Sleep(10);
+                    }
+                }
+            }
+
+            for (int i = 0; i < 17; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.SetCursorPosition(DevHelper.XEyeOne+3 + j, DevHelper.YEyeOne+3 + i);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write('o');
+                    Thread.Sleep(100 );
+                }
+            }
+            
+            for (int i = 0; i < 17; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.SetCursorPosition(DevHelper.XEyeTwo+3 + j, DevHelper.YEyeTwo+3 + i);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write('o');
+                    Thread.Sleep(100 );
+                }
+            }
+            
+            
+            
+            Environment.Exit(0);
         }
 
         /// <summary>

@@ -34,8 +34,12 @@ namespace Blone
             {
                 Console.Write("Health :  " + CurrentPlayer.Health);
             }
-        }
 
+            if (CurrentPlayer.Health == 0 || CurrentPlayer.Health < 0)
+            {
+                GameContainer.EndGame();
+            }
+        }
         
         /// <summary>
         /// Updates the ammo text in the user interface.
@@ -48,7 +52,7 @@ namespace Blone
                 Console.SetCursorPosition(i, DevHelper.YAmmo);
                 Console.Write(" ");
             }
-            Console.BackgroundColor = ConsoleColor.Black;
+
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(DevHelper.XAmmo, DevHelper.YAmmo);
             if (CurrentPlayer.Gun.AmmunitionInMagazine < 10)
@@ -60,6 +64,20 @@ namespace Blone
                 Console.Write(CurrentPlayer.Gun.Type + " - " + CurrentPlayer.Gun.AmmunitionInMagazine + "/" + CurrentPlayer.Gun.MagazineSize);
 
             }
+        }
+
+        public void UpdateScore()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            for (int i = 0; i < 20; i++)
+            {
+                Console.SetCursorPosition(i, DevHelper.YScore);
+                Console.Write(" ");
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(DevHelper.XScore, DevHelper.YScore);
+            Console.Write("Score : " + GameContainer.Score);
         }
     }
 }

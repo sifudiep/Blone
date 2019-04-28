@@ -16,13 +16,12 @@ namespace Blone
             var mapCreator = new MapCreator();
             mapCreator.MapSettings();
             Console.CursorVisible = false;
-            while (true)
+            while (GameContainer.AliveHero)
             {
                 gc.HandleInput();
                 gc.UpdateProjectiles();
                 spawner.CheckEnemySpawner();
                 gc.UpdateEnemies();
-                Thread.Sleep(10);
             }  
         }
 
