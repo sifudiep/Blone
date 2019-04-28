@@ -21,7 +21,7 @@ namespace Blone
             VerticalWalls(1,DevHelper.MapHeight/2, DevHelper.MapWidth/2+1);
             VerticalWalls(1, DevHelper.MapHeight, DevHelper.MapWidth/2+15);
         }
-    
+   
         /// <summary>
         ///  Creates a horizontal line of walls.
         /// </summary>

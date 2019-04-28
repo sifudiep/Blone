@@ -54,6 +54,9 @@ namespace Blone
             }
         }
 
+        /// <summary>
+        /// Animation when the hero's health points reaches 0.
+        /// </summary>
         public static void EndGame()
         {
             AliveHero = false;
@@ -129,8 +132,6 @@ namespace Blone
                     Thread.Sleep(100 );
                 }
             }
-            
-            
             
             Environment.Exit(0);
         }
