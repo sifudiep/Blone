@@ -36,6 +36,7 @@ namespace Blone
             }
             else if (input == "!help")
             {
+                Console.Clear();
                 Console.WriteLine("-Move the hero using the WASD keys.");
                 Console.WriteLine("-Control the field of view with the arrow keys.");
                 Console.WriteLine("-You can also shoot using the arrow keys, however you may only shoot in the direction that your watching.");
@@ -43,6 +44,7 @@ namespace Blone
                 Console.WriteLine("-Using the number buttons above WASD (not on the numpad) you can switch guns.");
                 Console.WriteLine("-In the bottom left corner you will also see your ammo,\n once you deplete your ammo you can either reload the guns or switch to another one using the number buttons");
                 Console.WriteLine("-Once your health reaches 0, you lose the game.");
+                Console.WriteLine("Press any key to return to the start screen. ");
                 Console.ReadLine();
                 goto Start;
             }
